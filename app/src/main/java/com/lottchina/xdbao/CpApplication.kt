@@ -1,6 +1,5 @@
 package com.lottchina.xdbao
 
-import android.util.Log
 import com.lottchina.baselib.BaseApplication
 import com.lottchina.baselib.utils.L
 
