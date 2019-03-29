@@ -9,6 +9,8 @@ import android.widget.LinearLayout
 import com.lottchina.baselib.R
 import com.lottchina.baselib.utils.L
 import com.vcaidian.baselib.utils.ToastUtil
+import com.vcaidian.wclib.utils.ActivityManager
+import com.vcaidian.wclib.utils.ActivityUtil
 import com.vcaidian.wclib.widget.CustomToolBar
 import com.vcaidian.wclib.widget.LoadingDialog
 
@@ -17,7 +19,7 @@ import com.vcaidian.wclib.widget.LoadingDialog
  * Date: 19-3-28
  * Description: Activity基类
  */
-abstract class BaseActivity : AppCompatActivity(), View.OnClickListener , CustomToolBar.OnClickLeftListener, CustomToolBar.OnClickRightListener {
+abstract class BaseActivity : AppCompatActivity() , CustomToolBar.OnClickLeftListener, CustomToolBar.OnClickRightListener {
     private val BASE_VIEW_ID: Int = R.layout.activity_base
     lateinit var mContext: Context
     lateinit var customToolBar: CustomToolBar
@@ -25,8 +27,11 @@ abstract class BaseActivity : AppCompatActivity(), View.OnClickListener , Custom
 
     override fun onCreate(savedInstanceState: Bundle?) {
         mContext = this
+        if (isFullScreen())
+            ActivityUtil.transparentStatusBar(window)
         super.onCreate(savedInstanceState)
         setContentView(initRootView())
+        ActivityManager.instance.addActivity(this)
         loadingDialog = LoadingDialog(mContext)
         initView()
         initListener()
@@ -131,6 +136,7 @@ abstract class BaseActivity : AppCompatActivity(), View.OnClickListener , Custom
         super.onDestroy()
         L.d("")
         dismissDialog()
+        ActivityManager.instance.removeActivity(this)
     }
 
     /**
@@ -161,6 +167,10 @@ abstract class BaseActivity : AppCompatActivity(), View.OnClickListener , Custom
      */
     fun toastShowLong(msg : String) {
         ToastUtil.showLong(mContext,msg)
+    }
+
+    open fun isFullScreen(): Boolean {
+        return false
     }
 
     fun addFragment(viewId: Int,fragment: Fragment) {

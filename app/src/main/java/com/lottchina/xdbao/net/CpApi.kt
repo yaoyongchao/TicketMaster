@@ -8,5 +8,5 @@ import com.lottchina.xdbao.BuildConfig
  * Description:
  */
 object CpApi {
-    val CP_RUL = BuildConfig.HTTP_API
+    val CP_RUL = BuildConfig.HTTP_API  + "api/"
 }

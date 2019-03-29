@@ -1,5 +1,6 @@
 package com.lottchina.xdbao
 
+import com.alibaba.android.arouter.launcher.ARouter
 import com.lottchina.baselib.BaseApplication
 import com.lottchina.baselib.utils.L
 
@@ -14,5 +15,15 @@ class CpApplication: BaseApplication() {
         super.onCreate()
         L.initLogger(BuildConfig.isDebug)
         L.d("启动Application")
+    }
+
+    override fun init() {
+        super.init()
+        //初始化ARouter
+        if (BuildConfig.isDebug) {
+            ARouter.openLog()//打开日志
+            ARouter.openDebug()//打开调式模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+        }
+        ARouter.init(this)
     }
 }

@@ -1,8 +1,6 @@
 package com.lottchina.xdbao
 
 import android.content.Intent
-import android.view.View
-
 import com.lottchina.baselib.base.BaseActivity
 import com.lottchina.xdbao.demo.TwoActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -45,7 +43,4 @@ class MainActivity : BaseActivity() {
 
     }
 
-    override fun onClick(v: View) {
-
-    }
 }

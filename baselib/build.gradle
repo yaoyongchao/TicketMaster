@@ -1,9 +1,15 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
 def ver = rootProject.ext
 def dep = rootProject.ext.dependencies
+
 
 android {
     compileSdkVersion ver.compileSdkVersion
@@ -16,6 +22,11 @@ android {
         versionCode ver.versionCode
         versionName ver.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
 
     }
 
@@ -71,6 +82,10 @@ dependencies {
 
     //拦截器
     api 'com.squareup.okhttp3:okhttp:3.10.0'
+
+    //ARouter
+    api 'com.alibaba:arouter-api:1.4.1'
+    kapt 'com.alibaba:arouter-compiler:1.2.2'
 
 }
 repositories {

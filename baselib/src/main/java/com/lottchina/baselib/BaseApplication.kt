@@ -15,6 +15,7 @@ import com.scwang.smartrefresh.layout.header.ClassicsHeader
 open class BaseApplication: Application() {
     override fun onCreate() {
         super.onCreate()
+        init()
     }
 
     companion object {
@@ -38,4 +39,6 @@ open class BaseApplication: Application() {
         }
     }
 
+    open fun init() {
+    }
 }

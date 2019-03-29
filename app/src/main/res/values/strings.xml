@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+	<string name="login">登录</string>
+	<string name="confirm_information">请确认店铺信息无误后登录</string>
+	<string name="shop_binding">店铺绑定</string>
+	<string name="welcome_tip">欢迎使用出票大师</string>
+    <string name="binding">绑定</string>
+    <string name="input_phone">请输入店铺手机号！</string>
+    <string name="binding_shop">首次使用，需要输入店主手机号码绑定店铺</string>
 </resources>

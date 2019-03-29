@@ -18,9 +18,11 @@
     <color name="bgDefault">#f5f5f5</color>
     <!--标题背景颜色-->
     <color name="bg_toolbar">#FF3437</color>
-    <!--字体-->
-    <color name="colorTxtDefault">#333333</color>
+    <!--字体  8a000000 为Android系统默认的字体颜色值-->
+    <!--<color name="colorTxtDefault">#333333</color>-->
+    <color name="colorTxtDefault">#8a000000</color>
     <!--分割线颜色-->
     <color name="colorBorder">#EEEEEE</color>
+    <color name="txtGrey">#999999</color>
 
 </resources>

@@ -1,6 +1,5 @@
 package com.lottchina.xdbao.demo
 
-import android.view.View
 import com.lottchina.baselib.base.BaseActivity
 import com.lottchina.xdbao.R
 
@@ -21,8 +20,6 @@ class TwoActivity : BaseActivity() {
     override fun initListener() {
     }
 
-    override fun onClick(v: View?) {
-    }
 
     /*override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
