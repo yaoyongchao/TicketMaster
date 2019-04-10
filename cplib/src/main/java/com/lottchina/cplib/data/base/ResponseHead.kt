@@ -18,10 +18,8 @@ class ResponseHead {
     var userId: String? = null
 
     var userType: String? = null
-
     override fun toString(): String {
-        return ("MessageHead [cmd=" + cmd + ", digest=" + digest + ", digestType=" + digestType + ", timeStamp="
-                + timeStamp + ", userId=" + userId + ", userType=" + userType + "]")
+        return "ResponseHead(cmd=$cmd, digest=$digest, digestType=$digestType, timeStamp=$timeStamp, userId=$userId, userType=$userType)"
     }
 
 

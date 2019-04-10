@@ -90,7 +90,7 @@
 
 
             <Button
-                android:id="@+id/btn_next"
+                android:id="@+id/btn_binding"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:layout_marginLeft="30dp"

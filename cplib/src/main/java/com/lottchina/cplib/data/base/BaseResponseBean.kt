@@ -5,7 +5,7 @@ package com.vcaidian.wclib.wc
  * Time: 2018/7/23
  * Description:
  */
-class BaseResponseBean {
+public class BaseResponseBean {
     var head: ResponseHead? = null
     var body: String? = null
 
