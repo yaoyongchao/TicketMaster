@@ -1,7 +1,6 @@
 package com.vcaidian.wclib.mvp
 
 import com.lottchina.baselib.mvp.BaseView
-import com.lottchina.baselib.utils.L
 import com.vcaidian.baselib.mvp.BaseModel
 import com.vcaidian.baselib.utils.CreatUtil
 import java.lang.ref.WeakReference
@@ -11,12 +10,12 @@ abstract class BasePresenter<V: BaseView, M: BaseModel> {
     var mModel: M? = null
     init {
         mModel = CreatUtil.getT(this,0)
-        L.e("mModel: $mModel")
+//        L.e("mModel: $mModel")
     }
 
     fun bindView(view: V) {
         this.view = WeakReference(view)
-        L.e("view: $view" )
+//        L.e("view: $view" )
     }
 
     fun isBind(): Boolean {

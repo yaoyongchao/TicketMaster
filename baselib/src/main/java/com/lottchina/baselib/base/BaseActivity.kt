@@ -36,6 +36,7 @@ abstract class BaseActivity : AppCompatActivity() , CustomToolBar.OnClickLeftLis
         initView()
         initListener()
         initData()
+
     }
 
     /**
@@ -158,14 +159,14 @@ abstract class BaseActivity : AppCompatActivity() , CustomToolBar.OnClickLeftLis
     /**
      * 显示短时间吐司
      */
-    fun toastShow(msg : String) {
+    fun toast(msg : String) {
         ToastUtil.show(mContext,msg)
     }
 
     /**
      * 显示一个长时间的吐司
      */
-    fun toastShowLong(msg : String) {
+    fun toastLong(msg : String) {
         ToastUtil.showLong(mContext,msg)
     }
 
@@ -178,4 +179,6 @@ abstract class BaseActivity : AppCompatActivity() , CustomToolBar.OnClickLeftLis
         fragmentTransaction.replace(viewId,fragment)
         fragmentTransaction.commit()
     }
+
+
 }

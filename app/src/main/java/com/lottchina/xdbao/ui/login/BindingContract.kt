@@ -1,7 +1,7 @@
 package com.lottchina.xdbao.ui.login
 
 import com.lottchina.baselib.mvp.BaseView
-import com.lottchina.cplib.data.body.login.BindingRespBody
+import com.lottchina.cplib.data.base.BaseRequestBody
 import com.vcaidian.baselib.mvp.BaseModel
 import com.vcaidian.wclib.mvp.BasePresenter
 import com.vcaidian.wclib.mvp.MVPListener
@@ -22,6 +22,6 @@ interface BindingContract {
     }
 
     abstract class BindingModel: BaseModel {
-        abstract fun bindingShop(username: String,listener: MVPListener<BindingRespBody>)
+        abstract fun bindingShop(username: String, body: BaseRequestBody, listener: MVPListener<String>)
     }
 }

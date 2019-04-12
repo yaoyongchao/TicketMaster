@@ -35,7 +35,7 @@ object JumpUtil {
             intent.component = cmp
             context.startActivity(intent)
         } catch (e: ActivityNotFoundException) {
-            // TODO: handle exception
+            //
             ToastUtil.show("检查到您手机没有安装微信，请安装后使用该功能")
         }
 

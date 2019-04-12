@@ -11,9 +11,9 @@ import retrofit2.http.POST
  * Date: 19-4-1
  * Description:
  */
-interface CpApiService{
+interface CpApiService {
     @FormUrlEncoded
-    @POST("service")
-    abstract fun userDetailss(@Field("head") head: String, @Field("body") body: String): Observable<BaseResponseBean>
+    @POST("data")
+    abstract fun loadData(@Field("head") head: String, @Field("body") body: String): Observable<BaseResponseBean>
 
 }

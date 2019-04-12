@@ -1,6 +1,7 @@
 package com.lottchina.baselib
 
 import android.app.Application
+import android.content.Context
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter
@@ -15,7 +16,7 @@ import com.scwang.smartrefresh.layout.header.ClassicsHeader
 open class BaseApplication: Application() {
     override fun onCreate() {
         super.onCreate()
-        init()
+        initViews()
     }
 
     companion object {
@@ -23,6 +24,8 @@ open class BaseApplication: Application() {
         val instance: Application by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
             BaseApplication()
         }
+
+        lateinit var appContext: Context
 
         //配置： SmartRefreshLayout
         init {//static 代码段可以防止内存泄露
@@ -39,6 +42,7 @@ open class BaseApplication: Application() {
         }
     }
 
-    open fun init() {
+    open fun initViews() {
+        appContext = applicationContext
     }
 }

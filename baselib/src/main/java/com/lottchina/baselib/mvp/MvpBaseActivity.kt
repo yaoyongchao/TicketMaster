@@ -3,7 +3,6 @@ package com.vcaidian.wclib.mvp
 import android.os.Bundle
 import com.lottchina.baselib.base.BaseActivity
 import com.lottchina.baselib.mvp.BaseView
-import com.lottchina.baselib.utils.L
 import com.vcaidian.baselib.utils.CreatUtil
 
 abstract class MvpBaseActivity<V: BaseView,P : BasePresenter<V,*> >: BaseActivity(){
@@ -13,7 +12,7 @@ abstract class MvpBaseActivity<V: BaseView,P : BasePresenter<V,*> >: BaseActivit
     override fun onCreate(savedInstanceState: Bundle?) {
         mPresenter = CreatUtil.getT(this,1)
         super.onCreate(savedInstanceState)
-        L.e( "mPresenter: $mPresenter")
+//        L.e( "mPresenter: $mPresenter")
         mPresenter?.bindView(this as V)
 
     }

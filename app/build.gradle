@@ -50,7 +50,7 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
-            debuggable false
+            debuggable true
         }
 
         debug {
@@ -79,7 +79,7 @@ android {
             resValue "string", "app_name", "出票大师测试版"
             resValue "bool", "isrRank", 'true'
             buildConfigField "Boolean", "isDebug", 'true'
-            buildConfigField "String", "HTTP_API", "\"http://testdebug.xxxx.com/\""
+            buildConfigField "String", "HTTP_API", "\"http://121.42.197.2\""
             manifestPlaceholders = [ENVIRONMENT: "appdebug",
                                     app_icon   : "@drawable/icon2"]
         }
@@ -110,6 +110,11 @@ android {
         abortOnError false
     }
 
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {

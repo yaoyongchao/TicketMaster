@@ -1,6 +1,6 @@
 package com.lottchina.xdbao.ui.login
 
-import com.lottchina.cplib.data.body.login.BindingRespBody
+import com.lottchina.cplib.data.body.login.BindingRequBody
 import com.vcaidian.wclib.mvp.MVPListener
 
 /**
@@ -10,8 +10,10 @@ import com.vcaidian.wclib.mvp.MVPListener
  */
 class BindingPresenter : BindingContract.BindingPresenter<BindingModel>() {
     override fun bindingShop(phoneNumber: String) {
-        mModel?.bindingShop(phoneNumber,object : MVPListener<BindingRespBody>{
-            override fun onSuccess(data: BindingRespBody) {
+        var body = BindingRequBody();
+        body.username = phoneNumber;
+        mModel?.bindingShop(phoneNumber,body,object : MVPListener<String>{
+            override fun onSuccess(data: String) {
                 obtainView()?.bindingSuccess("11")
             }
 

@@ -17,8 +17,8 @@ class CpApplication: BaseApplication() {
         L.d("启动Application")
     }
 
-    override fun init() {
-        super.init()
+    override fun initViews() {
+        super.initViews()
         //初始化ARouter
         if (BuildConfig.isDebug) {
             ARouter.openLog()//打开日志

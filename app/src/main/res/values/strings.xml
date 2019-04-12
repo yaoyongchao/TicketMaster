@@ -7,4 +7,6 @@
     <string name="binding">绑定</string>
     <string name="input_phone">请输入店铺手机号！</string>
     <string name="binding_shop">首次使用，需要输入店主手机号码绑定店铺</string>
+    <string name="phone_not_empty">手机号不能为空</string>
+    <string name="error_phone">您输入的手机号有误！</string>
 </resources>
