@@ -43,5 +43,10 @@
         <item name="android:textSize">@dimen/txt_small</item>
     </style>
 
+    <style name="txtSmallBlue" parent="AppTheme">
+        <item name="android:textColor">@color/txtBlue</item>
+        <item name="android:textSize">@dimen/txt_small</item>
+    </style>
+
 
 </resources>

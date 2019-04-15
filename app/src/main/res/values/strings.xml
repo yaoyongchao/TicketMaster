@@ -9,4 +9,6 @@
     <string name="binding_shop">首次使用，需要输入店主手机号码绑定店铺</string>
     <string name="phone_not_empty">手机号不能为空</string>
     <string name="error_phone">您输入的手机号有误！</string>
+    <string name="shop_name">店铺名称：</string>
+    <string name="owner_name">店主姓名：</string>
 </resources>

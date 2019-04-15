@@ -1,4 +1,4 @@
-package com.lottchina.cplib.data.base;
+package com.lottchina.cplib.data.bean;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -2,6 +2,7 @@ package com.lottchina.xdbao.ui.login
 
 import com.lottchina.baselib.mvp.BaseView
 import com.lottchina.cplib.data.base.BaseRequestBody
+import com.lottchina.cplib.data.bean.BindingStationBean
 import com.vcaidian.baselib.mvp.BaseModel
 import com.vcaidian.wclib.mvp.BasePresenter
 import com.vcaidian.wclib.mvp.MVPListener
@@ -13,7 +14,7 @@ import com.vcaidian.wclib.mvp.MVPListener
  */
 interface BindingContract {
     interface BindingView: BaseView {
-        fun bindingSuccess(str: String)
+        fun bindingSuccess(station: BindingStationBean)
     }
 
     abstract class BindingPresenter<M: BaseModel>: BasePresenter<BindingView,M>() {
@@ -22,6 +23,6 @@ interface BindingContract {
     }
 
     abstract class BindingModel: BaseModel {
-        abstract fun bindingShop(username: String, body: BaseRequestBody, listener: MVPListener<String>)
+        abstract fun bindingShop(username: String, body: BaseRequestBody, listener: MVPListener<BindingStationBean>)
     }
 }

@@ -1,10 +1,12 @@
 package com.lottchina.xdbao.ui.login
 
+import android.util.Log
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.lottchina.baselib.base.BaseActivity
 import com.lottchina.xdbao.R
 import com.vcaidian.customer.utils.RouteUrl
+import com.vcaidian.wclib.utils.ActivityManager
 
 /**
  * @Author: Austin
@@ -21,6 +23,8 @@ class LoginActivity : BaseActivity() {
 
     override fun initView() {
         showToolbar(View.GONE)
+        var bean = intent.getSerializableExtra("0")
+        Log.e("aa","bean" + bean)
     }
 
     override fun initData() {
@@ -33,5 +37,9 @@ class LoginActivity : BaseActivity() {
         return true
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        ActivityManager.instance.AppExit()
+    }
 
 }

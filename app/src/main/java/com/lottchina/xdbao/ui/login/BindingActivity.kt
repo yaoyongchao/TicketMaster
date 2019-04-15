@@ -4,6 +4,8 @@ import android.text.Editable
 import android.text.TextUtils
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.lottchina.baselib.utils.L
+import com.lottchina.cplib.data.bean.BindingStationBean
 import com.lottchina.cplib.utils.Validator
 import com.lottchina.xdbao.R
 import com.vcaidian.customer.utils.RouteUrl
@@ -17,12 +19,7 @@ import kotlinx.android.synthetic.main.activity_binding.*
  */
 @Route(path = RouteUrl.binding)
 class BindingActivity : MvpBaseActivity<BindingContract.BindingView,BindingPresenter>(),BindingContract.BindingView {
-    override fun bindingSuccess(str: String) {
 
-    }
-
-    override fun loadDataFailure(fail: String?) {
-    }
 
     override fun layoutId(): Int {
         return R.layout.activity_binding
@@ -49,6 +46,7 @@ class BindingActivity : MvpBaseActivity<BindingContract.BindingView,BindingPrese
         } else if (!Validator.isValidNumber(edt_phone.text.toString().trim())) {
             toast(getString(R.string.error_phone))
         } else {
+            showDialog()
             mPresenter?.bindingShop(edt_phone.text.toString())
         }
     }
@@ -57,4 +55,14 @@ class BindingActivity : MvpBaseActivity<BindingContract.BindingView,BindingPrese
         return true
     }
 
+    override fun bindingSuccess(station: BindingStationBean) {
+        dismissDialog()
+        L.i("数据请求成功：" + station);
+//        JumpUtil.jumpActivityWithObject(RouteUrl.login,station)
+
+    }
+
+    override fun loadFailure(fail: String?) {
+        dismissDialog()
+    }
 }

@@ -5,6 +5,7 @@ import com.lottchina.baselib.utils.L
 import com.lottchina.baselib.utils.rx.MyRxScheduler
 import com.lottchina.cplib.common.Command
 import com.lottchina.cplib.data.base.BaseRequestBody
+import com.lottchina.cplib.data.bean.BindingStationBean
 import com.lottchina.xdbao.net.CpServiceFactory
 import com.vcaidian.customer.bean.base.BaseRequestBean
 import com.vcaidian.customer.bean.base.RequestHead
@@ -22,7 +23,7 @@ import org.json.JSONObject
  * Description:
  */
 class BindingModel: BindingContract.BindingModel() {
-    override fun bindingShop(username: String, body: BaseRequestBody, listener: MVPListener<String>) {
+    override fun bindingShop(username: String, body: BaseRequestBody, listener: MVPListener<BindingStationBean>) {
 
         val pwd = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
         val strTimeStamp = TimestampUtil.timeStamp
@@ -61,7 +62,13 @@ class BindingModel: BindingContract.BindingModel() {
                     var errBean: ErrBean = GsonUtil.GsonToBean(jsonObject.getJSONObject("err").toString(),ErrBean::class.java)
                     if (ResponseCode.SUCCESS == errBean.code) {//请求成功
                         L.i("数据请求成功：${it.body}" )
-                        listener.onSuccess(it.body!!)
+                        val s = jsonObject.getJSONObject("data").toString()
+                        L.e("data:" + s)
+                        var o = GsonUtil.GsonToBean(s,BindingStationBean::class.java)
+                        L.e("o--$o")
+                        L.e("listener--$listener")
+
+                        listener.onSuccess(o!!)
                     } else {//请求失败
                         listener.onError(errBean.des!!)
                     }

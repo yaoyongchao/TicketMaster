@@ -23,6 +23,12 @@ object JumpUtil {
                 .navigation()
     }
 
+    fun jumpActivityWithObject(path: String,o: Any) {
+        ARouter.getInstance().build(path)
+                .withObject("0",1)
+                .navigation()
+    }
+
     /**
      * 跳转到微信
      */

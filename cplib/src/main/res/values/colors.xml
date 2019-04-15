@@ -6,4 +6,6 @@
     <color name="blueStartColor">#0C6DFF</color>
     <color name="blueEndColor">#2CB2FF</color>
 
+    <color name="txtBlue">#187EFC</color>
+
 </resources>

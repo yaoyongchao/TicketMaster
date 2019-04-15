@@ -19,7 +19,8 @@ public interface BaseView {
 //    void disimissProgress();
 //    void loadDataSuccess(T data);
 
-    void loadDataFailure(String fail);
+//    void loadDataFailure(String fail);
+    void loadFailure(String fail);
 //    void loadDataSuccess(Object obj);
 
 
