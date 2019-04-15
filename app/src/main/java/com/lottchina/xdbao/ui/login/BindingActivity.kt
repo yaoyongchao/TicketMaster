@@ -1,13 +1,16 @@
 package com.lottchina.xdbao.ui.login
 
+import android.content.Intent
 import android.text.Editable
 import android.text.TextUtils
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
 import com.lottchina.baselib.utils.L
 import com.lottchina.cplib.data.bean.BindingStationBean
 import com.lottchina.cplib.utils.Validator
 import com.lottchina.xdbao.R
+import com.vcaidian.customer.utils.JumpUtil
 import com.vcaidian.customer.utils.RouteUrl
 import com.vcaidian.wclib.mvp.MvpBaseActivity
 import kotlinx.android.synthetic.main.activity_binding.*
@@ -58,7 +61,11 @@ class BindingActivity : MvpBaseActivity<BindingContract.BindingView,BindingPrese
     override fun bindingSuccess(station: BindingStationBean) {
         dismissDialog()
         L.i("数据请求成功：" + station);
-//        JumpUtil.jumpActivityWithObject(RouteUrl.login,station)
+        JumpUtil.jumpActivityWithParcelable(RouteUrl.login,station)
+//        startActivity(Intent(this,LoginActivity::class.java))
+//        ARouter.getInstance().build(RouteUrl.login)
+//                .withParcelable("login",station)
+//                .navigation()
 
     }
 

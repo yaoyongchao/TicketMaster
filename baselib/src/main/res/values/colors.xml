@@ -25,4 +25,13 @@
     <color name="colorBorder">#EEEEEE</color>
     <color name="txtGrey">#999999</color>
 
+
+    <color name="font_common_1">#424242</color>
+    <color name="font_common_2">#a1a1a1</color>
+    <color name="font_blue">#42369a</color>
+
+    <color name="font_green">#00cccc</color>
+
+    <color name="commom_background">#f3f3f3</color>
+
 </resources>

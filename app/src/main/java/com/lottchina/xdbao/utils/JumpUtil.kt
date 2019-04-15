@@ -1,5 +1,6 @@
 package com.vcaidian.customer.utils
 
+import android.os.Parcelable
 import com.alibaba.android.arouter.launcher.ARouter
 
 object JumpUtil {
@@ -25,7 +26,12 @@ object JumpUtil {
 
     fun jumpActivityWithObject(path: String,o: Any) {
         ARouter.getInstance().build(path)
-                .withObject("0",1)
+                .withObject("0",o)
+                .navigation()
+    }
+    fun jumpActivityWithParcelable(path: String,p: Parcelable) {
+        ARouter.getInstance().build(path)
+                .withParcelable("bean",p)
                 .navigation()
     }
 

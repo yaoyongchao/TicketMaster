@@ -1,5 +1,8 @@
 package com.lottchina.cplib.data.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 
 /**
@@ -7,22 +10,22 @@ import java.io.Serializable;
  * @Date: 19-4-15
  * @Description: 终端
  */
-public class Terminal implements Serializable {
+public class Terminal implements Parcelable {
 
-    private Integer id;
-    private String block_num;
-    private String code;
-    private String games;
-    private Integer hard_type_id;
-    private String hard_type;
-    private String sale_num;
-    private String sale_pass;
-    private String ukey;
-    private Integer enter_sep;
-    private String game_config;
-    private Integer user_status;
-    private String robotInitPrefix;
-    private Integer is_sale_online;
+    public Integer id;
+    public String block_num;
+    public String code;
+    public String games;
+    public Integer hard_type_id;
+    public String hard_type;
+    public String sale_num;
+    public String sale_pass;
+    public String ukey;
+    public Integer enter_sep;
+    public String game_config;
+    public Integer user_status;
+    public String robotInitPrefix;
+    public Integer is_sale_online;
 
 
     public Integer getId() {
@@ -139,4 +142,58 @@ public class Terminal implements Serializable {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(this.id);
+        dest.writeString(this.block_num);
+        dest.writeString(this.code);
+        dest.writeString(this.games);
+        dest.writeValue(this.hard_type_id);
+        dest.writeString(this.hard_type);
+        dest.writeString(this.sale_num);
+        dest.writeString(this.sale_pass);
+        dest.writeString(this.ukey);
+        dest.writeValue(this.enter_sep);
+        dest.writeString(this.game_config);
+        dest.writeValue(this.user_status);
+        dest.writeString(this.robotInitPrefix);
+        dest.writeValue(this.is_sale_online);
+    }
+
+    public Terminal() {
+    }
+
+    protected Terminal(Parcel in) {
+        this.id = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.block_num = in.readString();
+        this.code = in.readString();
+        this.games = in.readString();
+        this.hard_type_id = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.hard_type = in.readString();
+        this.sale_num = in.readString();
+        this.sale_pass = in.readString();
+        this.ukey = in.readString();
+        this.enter_sep = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.game_config = in.readString();
+        this.user_status = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.robotInitPrefix = in.readString();
+        this.is_sale_online = (Integer) in.readValue(Integer.class.getClassLoader());
+    }
+
+    public static final Parcelable.Creator<Terminal> CREATOR = new Parcelable.Creator<Terminal>() {
+        @Override
+        public Terminal createFromParcel(Parcel source) {
+            return new Terminal(source);
+        }
+
+        @Override
+        public Terminal[] newArray(int size) {
+            return new Terminal[size];
+        }
+    };
 }

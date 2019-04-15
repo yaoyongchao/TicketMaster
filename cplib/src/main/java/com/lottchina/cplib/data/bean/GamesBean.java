@@ -1,5 +1,8 @@
 package com.lottchina.cplib.data.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -9,7 +12,7 @@ import java.io.Serializable;
  * @Date: 19-4-12
  * @Description: 彩种实体类
  */
-public class GamesBean  implements Serializable {
+public class GamesBean implements Parcelable {
 
 
     /**
@@ -28,31 +31,31 @@ public class GamesBean  implements Serializable {
      */
 
     @SerializedName("100")
-    private int _$100;
+    public int _$100;
     @SerializedName("101")
-    private int _$101;
+    public int _$101;
     @SerializedName("200")
-    private int _$200;
+    public int _$200;
     @SerializedName("201")
-    private int _$201;
+    public int _$201;
     @SerializedName("202")
-    private int _$202;
+    public int _$202;
     @SerializedName("203")
-    private int _$203;
+    public int _$203;
     @SerializedName("205")
-    private int _$205;
+    public int _$205;
     @SerializedName("207")
-    private int _$207;
+    public int _$207;
     @SerializedName("301")
-    private int _$301;
+    public int _$301;
     @SerializedName("401")
-    private int _$401;
+    public int _$401;
     @SerializedName("402")
-    private int _$402;
+    public int _$402;
     @SerializedName("601")
-    private int _$601;
+    public int _$601;
     @SerializedName("602")
-    private int _$602;
+    public int _$602;
 
 
     public int get_$100() {
@@ -158,4 +161,57 @@ public class GamesBean  implements Serializable {
     public void set_$602(int _$602) {
         this._$602 = _$602;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this._$100);
+        dest.writeInt(this._$101);
+        dest.writeInt(this._$200);
+        dest.writeInt(this._$201);
+        dest.writeInt(this._$202);
+        dest.writeInt(this._$203);
+        dest.writeInt(this._$205);
+        dest.writeInt(this._$207);
+        dest.writeInt(this._$301);
+        dest.writeInt(this._$401);
+        dest.writeInt(this._$402);
+        dest.writeInt(this._$601);
+        dest.writeInt(this._$602);
+    }
+
+    public GamesBean() {
+    }
+
+    protected GamesBean(Parcel in) {
+        this._$100 = in.readInt();
+        this._$101 = in.readInt();
+        this._$200 = in.readInt();
+        this._$201 = in.readInt();
+        this._$202 = in.readInt();
+        this._$203 = in.readInt();
+        this._$205 = in.readInt();
+        this._$207 = in.readInt();
+        this._$301 = in.readInt();
+        this._$401 = in.readInt();
+        this._$402 = in.readInt();
+        this._$601 = in.readInt();
+        this._$602 = in.readInt();
+    }
+
+    public static final Parcelable.Creator<GamesBean> CREATOR = new Parcelable.Creator<GamesBean>() {
+        @Override
+        public GamesBean createFromParcel(Parcel source) {
+            return new GamesBean(source);
+        }
+
+        @Override
+        public GamesBean[] newArray(int size) {
+            return new GamesBean[size];
+        }
+    };
 }

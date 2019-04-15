@@ -1,5 +1,8 @@
 package com.lottchina.cplib.data.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -8,7 +11,7 @@ import java.util.List;
  * Date: 19-4-15
  * Description: 绑定 Station
  */
-public class BindingStationBean implements Serializable {
+public class BindingStationBean implements Parcelable {
 
     /**
      * addr : 北京市丰台区南四环西路辅路
@@ -37,30 +40,32 @@ public class BindingStationBean implements Serializable {
      * zfb_id :
      */
 
-    private String addr;
-    private String card_no;
-    private String descrip;
-    private int dist;
-    private int face_pic_id;
-    private GamesBean games;
-    private int id;
-    private int is_info_open;
-    private double lantitude;
-    private double longitude;
-    private String name;
-    private String nickname;
-    private String notice;
-    private String sale_id;
-    private int sale_pic_id;
-    private int self_c_id;
-    private String tel_phone;
-    private String username;
-    private String weixin_account_id;
-    private int weixin_account_pic_id;
-    private String weixin_account_url;
-    private String weixin_rec_url;
-    private String zfb_id;
-    private List<Terminal> terminals;
+    public String addr;
+    public String card_no;
+    public String descrip;
+    public int dist;
+    public int face_pic_id;
+    public GamesBean games;
+    public int id;
+    public int is_info_open;
+    public double lantitude;
+    public double longitude;
+    public String name;
+    public String nickname;
+    public String notice;
+    public String sale_id;
+    public int sale_pic_id;
+    public int self_c_id;
+    public String tel_phone;
+    public String username;
+    public String weixin_account_id;
+    public int weixin_account_pic_id;
+    public String weixin_account_url;
+    public String weixin_rec_url;
+    public String zfb_id;
+    public List<Terminal> terminals;
+
+
 
     public String getAddr() {
         return addr;
@@ -283,4 +288,79 @@ public class BindingStationBean implements Serializable {
                 ", terminals=" + terminals +
                 '}';
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.addr);
+        dest.writeString(this.card_no);
+        dest.writeString(this.descrip);
+        dest.writeInt(this.dist);
+        dest.writeInt(this.face_pic_id);
+        dest.writeParcelable(this.games, flags);
+        dest.writeInt(this.id);
+        dest.writeInt(this.is_info_open);
+        dest.writeDouble(this.lantitude);
+        dest.writeDouble(this.longitude);
+        dest.writeString(this.name);
+        dest.writeString(this.nickname);
+        dest.writeString(this.notice);
+        dest.writeString(this.sale_id);
+        dest.writeInt(this.sale_pic_id);
+        dest.writeInt(this.self_c_id);
+        dest.writeString(this.tel_phone);
+        dest.writeString(this.username);
+        dest.writeString(this.weixin_account_id);
+        dest.writeInt(this.weixin_account_pic_id);
+        dest.writeString(this.weixin_account_url);
+        dest.writeString(this.weixin_rec_url);
+        dest.writeString(this.zfb_id);
+        dest.writeTypedList(this.terminals);
+    }
+
+    public BindingStationBean() {
+    }
+
+    protected BindingStationBean(Parcel in) {
+        this.addr = in.readString();
+        this.card_no = in.readString();
+        this.descrip = in.readString();
+        this.dist = in.readInt();
+        this.face_pic_id = in.readInt();
+        this.games = in.readParcelable(GamesBean.class.getClassLoader());
+        this.id = in.readInt();
+        this.is_info_open = in.readInt();
+        this.lantitude = in.readDouble();
+        this.longitude = in.readDouble();
+        this.name = in.readString();
+        this.nickname = in.readString();
+        this.notice = in.readString();
+        this.sale_id = in.readString();
+        this.sale_pic_id = in.readInt();
+        this.self_c_id = in.readInt();
+        this.tel_phone = in.readString();
+        this.username = in.readString();
+        this.weixin_account_id = in.readString();
+        this.weixin_account_pic_id = in.readInt();
+        this.weixin_account_url = in.readString();
+        this.weixin_rec_url = in.readString();
+        this.zfb_id = in.readString();
+        this.terminals = in.createTypedArrayList(Terminal.CREATOR);
+    }
+
+    public static final Parcelable.Creator<BindingStationBean> CREATOR = new Parcelable.Creator<BindingStationBean>() {
+        @Override
+        public BindingStationBean createFromParcel(Parcel source) {
+            return new BindingStationBean(source);
+        }
+
+        @Override
+        public BindingStationBean[] newArray(int size) {
+            return new BindingStationBean[size];
+        }
+    };
 }
