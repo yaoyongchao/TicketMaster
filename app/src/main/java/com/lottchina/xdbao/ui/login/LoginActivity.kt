@@ -1,6 +1,5 @@
 package com.lottchina.xdbao.ui.login
 
-import android.util.Log
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -9,11 +8,10 @@ import com.lottchina.baselib.base.BaseActivity
 import com.lottchina.baselib.utils.L
 import com.lottchina.cplib.data.bean.BindingStationBean
 import com.lottchina.xdbao.R
+import com.lottchina.xdbao.ui.dialog.TermialsDialogFragment
 import com.vcaidian.customer.utils.RouteUrl
 import com.vcaidian.wclib.utils.ActivityManager
 import kotlinx.android.synthetic.main.activity_login.*
-import android.widget.Toast
-import com.lottchina.baselib.widget.CommomDialog
 
 
 
@@ -47,10 +45,12 @@ class LoginActivity : BaseActivity() {
     override fun initListener() {
         btn.setOnClickListener {
 
-            CommomDialog(mContext, com.lottchina.xdbao.R.style.dialog,"您确定删除此信息？", CommomDialog.OnCloseListener { dialog, confirm ->
+            /*CommomDialog(mContext, com.lottchina.xdbao.R.style.dialog,"您确定删除此信息？", CommomDialog.OnCloseListener { dialog, confirm ->
                 Log.e("aa","11111111")
 
-            }).setTitle("提示").show()
+            }).setTitle("提示").show()*/
+
+            TermialsDialogFragment().show(supportFragmentManager,"dialog")
         }
     }
 
