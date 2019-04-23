@@ -19,4 +19,6 @@
 	<dimen name="margin_default">14dp</dimen>
 	<!--分割线默认宽 ，高度-->
 	<dimen name="border_default">2px</dimen>
+
+	<dimen name="dialog_margin">80dp</dimen>
 </resources>
