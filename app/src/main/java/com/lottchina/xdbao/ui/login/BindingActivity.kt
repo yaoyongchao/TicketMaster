@@ -1,11 +1,9 @@
 package com.lottchina.xdbao.ui.login
 
-import android.content.Intent
 import android.text.Editable
 import android.text.TextUtils
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.alibaba.android.arouter.launcher.ARouter
 import com.lottchina.baselib.utils.L
 import com.lottchina.cplib.data.bean.BindingStationBean
 import com.lottchina.cplib.utils.Validator
@@ -49,8 +47,9 @@ class BindingActivity : MvpBaseActivity<BindingContract.BindingView,BindingPrese
         } else if (!Validator.isValidNumber(edt_phone.text.toString().trim())) {
             toast(getString(R.string.error_phone))
         } else {
-            showDialog()
-            mPresenter?.bindingShop(edt_phone.text.toString())
+//            showDialog()
+//            mPresenter?.bindingShop(edt_phone.text.toString())
+            test()
         }
     }
 
@@ -71,5 +70,11 @@ class BindingActivity : MvpBaseActivity<BindingContract.BindingView,BindingPrese
 
     override fun loadFailure(fail: String?) {
         dismissDialog()
+    }
+
+    fun test() {
+        var map :HashMap<Int,String>  = HashMap()
+        map.put(1,"你好")
+        L.e(map.get(1)!!)
     }
 }
