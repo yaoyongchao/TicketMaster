@@ -47,9 +47,9 @@ class BindingActivity : MvpBaseActivity<BindingContract.BindingView,BindingPrese
         } else if (!Validator.isValidNumber(edt_phone.text.toString().trim())) {
             toast(getString(R.string.error_phone))
         } else {
-//            showDialog()
-//            mPresenter?.bindingShop(edt_phone.text.toString())
-            test()
+            showDialog()
+            mPresenter?.bindingShop(edt_phone.text.toString())
+//            test()
         }
     }
 
@@ -61,6 +61,10 @@ class BindingActivity : MvpBaseActivity<BindingContract.BindingView,BindingPrese
         dismissDialog()
         L.i("数据请求成功：" + station);
         JumpUtil.jumpActivityWithParcelable(RouteUrl.login,station)
+
+
+
+
 //        startActivity(Intent(this,LoginActivity::class.java))
 //        ARouter.getInstance().build(RouteUrl.login)
 //                .withParcelable("login",station)

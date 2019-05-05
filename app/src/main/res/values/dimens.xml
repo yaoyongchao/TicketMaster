@@ -11,4 +11,5 @@
 	<dimen name="dimen_80dp">80dp</dimen>
 	<dimen name="dimen_43dp">43dp</dimen>
 	<dimen name="dimen_110dp">110dp</dimen>
+    <dimen name="login_tv_padding">8dp</dimen>
 </resources>

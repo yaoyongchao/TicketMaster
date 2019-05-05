@@ -9,4 +9,6 @@ interface MVPListener<T> {
     fun onSuccess(data: T)
 
     fun onError(error: String)
+
+//    fun onErrorBean(errorBean: ErrBean)
 }

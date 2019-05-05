@@ -6,9 +6,14 @@
 	<string name="welcome_tip">欢迎使用出票大师</string>
     <string name="binding">绑定</string>
     <string name="input_phone">请输入店铺手机号！</string>
+    <string name="input_pass">请输入密码！</string>
     <string name="binding_shop">首次使用，需要输入店主手机号码绑定店铺</string>
     <string name="phone_not_empty">手机号不能为空</string>
     <string name="error_phone">您输入的手机号有误！</string>
     <string name="shop_name">店铺名称：</string>
     <string name="owner_name">店主姓名：</string>
+    <string name="please_select_login_account">请选择登录账号</string>
+    <string name="init_pass">初始密码为000000，可在微彩之家——>微彩店设置——>销售员——>销售员管理页面设置登录密码。</string>
+    <string name="login_not_empty">登录账号不能为空。</string>
+    <string name="password_not_empty">密码不能为空。</string>
 </resources>
