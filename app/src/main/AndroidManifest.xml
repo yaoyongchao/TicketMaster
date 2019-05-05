@@ -10,14 +10,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.login.BindingActivity"></activity>
+        <activity android:name=".ui.home.HomeActivity"></activity>
+        <activity android:name=".ui.login.BindingActivity" />
         <activity android:name=".ui.login.LoginActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".demo.ThreeActivity" />
         <activity android:name=".demo.TwoActivity" />
-        <activity android:name=".ui.login.StartupPageActivity"
-            android:theme="@style/splashTheme"
-            >
+        <activity
+            android:name=".ui.login.StartupPageActivity"
+            android:theme="@style/splashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

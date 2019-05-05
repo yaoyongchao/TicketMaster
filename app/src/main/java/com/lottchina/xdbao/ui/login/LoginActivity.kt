@@ -94,7 +94,7 @@ class LoginActivity : MvpBaseActivity<LoginContract.LoginView,LoginPresenter>(),
         } else {
             L.i("点击登录按钮")
             showDialog()
-//            mPresenter?.login("18039364720")
+            mPresenter?.login(cedt_selected.text.toString(),cedt_password.text.trim().toString(),bean?.id)
 
         }
 
