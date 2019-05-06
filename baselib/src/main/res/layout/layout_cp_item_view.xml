@@ -3,8 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
+
     android:orientation="vertical">
+
+    <View
+        android:id="@+id/view_top"
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:visibility="gone"
+        />
 
     <include
         android:id="@+id/border_top"
@@ -17,6 +24,7 @@
         android:layout_weight="1"
         android:gravity="center_vertical"
         android:orientation="horizontal"
+        android:background="@drawable/setting_item_selector"
         >
 
         <ImageView

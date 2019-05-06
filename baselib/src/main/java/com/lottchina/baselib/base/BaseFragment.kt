@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import com.lottchina.baselib.R
 import com.lottchina.baselib.utils.L
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
+import com.vcaidian.baselib.utils.ToastUtil
 import com.vcaidian.wclib.widget.LoadingDialog
 import kotlinx.android.synthetic.main.fragment_base.view.*
 
@@ -37,6 +38,7 @@ abstract class BaseFragment : Fragment() {
         loadingDialog = LoadingDialog(mContext)
 
         initView()
+        initListener()
         initData()
         isPrepared = true
         lazyLoad()
@@ -186,4 +188,17 @@ abstract class BaseFragment : Fragment() {
         fragmentTransaction.commit()
     }
 
+    /**
+     * 显示短时间吐司
+     */
+    fun toast(msg : String) {
+        ToastUtil.show(mContext,msg)
+    }
+
+    /**
+     * 显示一个长时间的吐司
+     */
+    fun toastLong(msg : String) {
+        ToastUtil.showLong(mContext,msg)
+    }
 }

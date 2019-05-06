@@ -59,7 +59,7 @@ class HomeActivity : BaseActivity(), ViewPager.OnPageChangeListener {
     }
 
     override fun initListener() {
-        viewpager.setScroll(false)
+        viewpager.setScroll(true)
         viewpager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tablayout))
         tablayout.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(viewpager))
         viewpager.setOnPageChangeListener(this)
@@ -67,7 +67,7 @@ class HomeActivity : BaseActivity(), ViewPager.OnPageChangeListener {
     }
 
     override fun isFullScreen(): Boolean {
-        return true
+        return false
     }
 
     /**

@@ -96,6 +96,7 @@
         <attr name="cp_text_tips" format="string" />
         <attr name="show_border_bottom" format="boolean" />
         <attr name="show_border_top" format="boolean" />
+        <attr name="show_view_top" format="boolean" />
         <!--<attr name="border_height" format="dimension" />-->
         <!--<attr name="title_text_marginleft" format="dimension" />-->
         <!--<attr name="title_textSize" format="dimension" />-->
