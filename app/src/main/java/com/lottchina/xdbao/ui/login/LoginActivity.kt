@@ -8,8 +8,12 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.lottchina.baselib.utils.L
 import com.lottchina.cplib.data.bean.BindingStationBean
+import com.lottchina.cplib.data.bean.body.login.LoginResBody
+import com.lottchina.cplib.data.bean.body.login.StoreResBody
 import com.lottchina.xdbao.R
 import com.lottchina.xdbao.ui.dialog.TermialsDialogFragment
+import com.lottchina.xdbao.utils.CommonUtil
+import com.vcaidian.customer.utils.JumpUtil
 import com.vcaidian.customer.utils.RouteUrl
 import com.vcaidian.wclib.mvp.MvpBaseActivity
 import com.vcaidian.wclib.utils.ActivityManager
@@ -24,7 +28,6 @@ import kotlinx.android.synthetic.main.activity_login.*
  */
 @Route(path = RouteUrl.login)
 class LoginActivity : MvpBaseActivity<LoginContract.LoginView,LoginPresenter>(),LoginContract.LoginView,View.OnClickListener,TermialsDialogFragment.MyOnItemClickListener {
-
 
     @Autowired(name = "bean")
     lateinit var bean: BindingStationBean
@@ -43,11 +46,9 @@ class LoginActivity : MvpBaseActivity<LoginContract.LoginView,LoginPresenter>(),
         tv_shop_name.text = bean?.nickname
         tv_owner_name.text = bean?.name
         cedt_selected.setText(bean?.terminals?.get(0)?.code)
+        cedt_password.setText("000000")
 
         termialsDialogFragment = TermialsDialogFragment(bean.getTerminals())
-
-
-
     }
 
     override fun initData() {
@@ -94,10 +95,8 @@ class LoginActivity : MvpBaseActivity<LoginContract.LoginView,LoginPresenter>(),
         } else {
             L.i("点击登录按钮")
             showDialog()
-            mPresenter?.login(cedt_selected.text.toString(),cedt_password.text.trim().toString(),bean?.id)
-
+            mPresenter?.login(bean.id,cedt_selected.text.toString(),cedt_password.text.trim().toString(),bean?.id)
         }
-
     }
 
 
@@ -110,16 +109,20 @@ class LoginActivity : MvpBaseActivity<LoginContract.LoginView,LoginPresenter>(),
         ActivityManager.instance.AppExit()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
-    override fun loginSuccess(station: BindingStationBean) {
-        dismissDialog()
-        Log.e("aa","登录成功")
+    override fun loginSuccess(body: LoginResBody) {
+        CommonUtil.saveUserIdToken(body.user_id,body.token)
+        CommonUtil.saveTerminal(body.terminal)
+        Log.e("aa","---保存信息成功")
+        mPresenter?.loadStore()
     }
 
     override fun loadFailure(fail: String?) {
         dismissDialog()
+    }
+
+    override fun loadStoreSuccess(store: StoreResBody) {
+        dismissDialog()
+        Log.e("aa","获取店铺信心成功")
+        JumpUtil.jumpActivity(RouteUrl.home)
     }
 }

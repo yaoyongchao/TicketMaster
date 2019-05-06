@@ -17,6 +17,8 @@ class LoggingInterceptor : Interceptor {
         //        logger.info(String.format("发送请求 %s on %s%n%s",
         //                request.url(), chain.connection(), request.headers()));
 
+//        var requestBody = request.body()
+//        var jsonBody = GsonUtil.GsonString(requestBody)
         Log.e(TAG,"---->:" + String.format("发送请求 %s on %s%n%s",
                 request.url(),
                 chain.connection(),

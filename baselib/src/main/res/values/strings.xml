@@ -2,4 +2,5 @@
 <resources>
 	<string name="stringValue1">
 </string>
+	<string name="textEmpty"></string>
 </resources>

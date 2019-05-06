@@ -61,6 +61,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api dep.recyclerview_v7
+    api dep.support_design
     //Logger日志
     api 'com.orhanobut:logger:2.2.0'
     //SmartRefreshLayout：下拉刷新， 上拉加载更多  https://github.com/scwang90/SmartRefreshLayout

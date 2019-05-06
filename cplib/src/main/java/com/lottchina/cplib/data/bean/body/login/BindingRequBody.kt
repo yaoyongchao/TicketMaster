@@ -1,4 +1,4 @@
-package com.lottchina.cplib.data.body.login
+package com.lottchina.cplib.data.bean.body.login
 
 import com.lottchina.cplib.data.base.BaseRequestBody
 

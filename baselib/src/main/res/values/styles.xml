@@ -50,4 +50,31 @@
         <item name="android:button">@drawable/ckb_green_selector</item>
     </style>
 
+    <!-- Home -->
+    <style name="CustomTab" parent="Widget.Design.TabLayout" >
+        <item name="tabIndicatorColor">@color/tab_indicator</item>
+        <item name="tabTextColor">@color/tab_tv_normal</item>
+        <item name="tabSelectedTextColor">@color/tab_tv_selected</item>
+        <item name="tabBackground">@drawable/bg_tab_border_selecter</item>
+        <item name="tabIndicatorHeight">0dp</item>
+    </style>
+    <style name="WidthHeightMM" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="WidthHeightMW" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="WidthHeightWM" parent="AppTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="WidthHeightWW" parent="AppTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>

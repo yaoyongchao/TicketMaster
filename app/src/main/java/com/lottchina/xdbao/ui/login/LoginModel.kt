@@ -5,8 +5,11 @@ import com.lottchina.baselib.utils.L
 import com.lottchina.baselib.utils.rx.MyRxScheduler
 import com.lottchina.cplib.common.Command
 import com.lottchina.cplib.data.base.BaseRequestBody
-import com.lottchina.cplib.data.bean.BindingStationBean
+import com.lottchina.cplib.data.bean.body.login.LoginResBody
+import com.lottchina.cplib.data.bean.body.login.StoreReqBody
+import com.lottchina.cplib.data.bean.body.login.StoreResBody
 import com.lottchina.xdbao.net.CpServiceFactory
+import com.lottchina.xdbao.utils.CommonUtil
 import com.vcaidian.customer.bean.base.BaseRequestBean
 import com.vcaidian.customer.bean.base.RequestHead
 import com.vcaidian.customer.common.CommonParam
@@ -23,7 +26,9 @@ import org.json.JSONObject
  * Description:
  */
 class LoginModel: LoginContract.LoginModel() {
-    override fun login(body: BaseRequestBody, listener: MVPListener<BindingStationBean>) {
+
+
+    override fun login(userId:Int,body: BaseRequestBody, listener: MVPListener<LoginResBody>) {
 
         val pwd = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
         val strTimeStamp = TimestampUtil.timeStamp
@@ -37,7 +42,7 @@ class LoginModel: LoginContract.LoginModel() {
         head.cmd = Command.CMD_TERMINAL_LOGIN
         head.digest = digest
         head.digestType = CommonParam.DIGEST_TYPE
-//        head.userId = if (userId == 0L){""}else{userId.toString()}
+        head.userId = if (userId == 0){""}else{userId.toString()}
         head.timeStamp = strTimeStamp
         head.userType = CommonParam.USER_TYPE
 
@@ -61,12 +66,12 @@ class LoginModel: LoginContract.LoginModel() {
 //                    var errBean: ErrBean = Gson().fromJson(jsonObject.getJSONObject("err").toString(),ErrBean::class.java)
                     var errBean: ErrBean = GsonUtil.GsonToBean(jsonObject.getJSONObject("err").toString(),ErrBean::class.java)
                     if (ResponseCode.SUCCESS == errBean.code) {//请求成功
-                        L.i("数据请求成功：${it.body}" )
-                        val s = jsonObject.getJSONObject("data").toString()
-                        L.e("data:" + s)
-                        var o = GsonUtil.GsonToBean(s,BindingStationBean::class.java)
-                        L.e("o--$o")
-                        L.e("listener--$listener")
+//                        L.i("数据请求成功：${it.body}" )
+//                        val s = jsonObject.getJSONObject("data").toString()
+//                        L.e("data:" + s)
+                        var o = GsonUtil.GsonToBean(it.body,LoginResBody::class.java)
+//                        L.e("o--$o")
+//                        L.e("listener--$listener")
 
                         listener.onSuccess(o!!)
                     } else {//请求失败
@@ -139,5 +144,79 @@ class LoginModel: LoginContract.LoginModel() {
 
     }*/
 
+
+    fun loadStore(account: Int, channel: Int, customer: Int, station: Int, terminal: Int, listener: MVPListener<StoreResBody>) {
+
+//        val pwd = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        val pwd = CommonUtil.getToken()
+        val strTimeStamp = TimestampUtil.timeStamp
+//        var gsonBody = Gson().toJson(body)
+        var body = StoreReqBody()
+        body.account = account
+        body.channel = channel
+        body.customer = customer
+        body.station = station
+        body.terminal = terminal
+        var gsonBody = GsonUtil.GsonString(body)
+        L.e("pwd: $pwd")
+        L.e("body: $gsonBody")
+        var digest = MD5Util.md5((pwd + gsonBody + strTimeStamp).toByteArray(charset("UTF-8")))
+
+        var head = RequestHead()
+        head.cmd = Command.CMD_STATION_GET_DETAIL
+        head.digest = digest
+        head.digestType = CommonParam.DIGEST_TYPE
+        head.userId = CommonUtil.getUserId().toString()
+        head.timeStamp = strTimeStamp
+        head.userType = CommonParam.USER_TYPE
+
+        var requestBean = BaseRequestBean(head, gsonBody)
+
+//        var gsonHead = Gson().toJson(head)
+        var gsonHead = GsonUtil.GsonString(head)
+
+        L.e("head: $gsonHead \nbody: $gsonBody")
+
+        CpServiceFactory.getService()
+                .loadData(gsonHead,gsonBody)
+                .compose(MyRxScheduler.ioMain())
+                /*.map {
+                    var jsonObject: JSONObject = JSONObject(it.body)
+                    var body = Gson().fromJson(it.body, BaseResponseBody::class.java)
+                    body
+                }*/.subscribe(
+                {
+                    var jsonObject  = JSONObject(it.body)
+                    L.i(jsonObject.toString())
+//                    var errBean: ErrBean = Gson().fromJson(jsonObject.getJSONObject("err").toString(),ErrBean::class.java)
+                    var errBean: ErrBean = GsonUtil.GsonToBean(jsonObject.getJSONObject("err").toString(),ErrBean::class.java)
+                    if (ResponseCode.SUCCESS == errBean.code) {//请求成功
+//                        L.i("数据请求成功：${it.body}" )
+//                        val s = jsonObject.getJSONObject("data").toString()
+//                        L.e("data:" + s)
+                        var o = GsonUtil.GsonToBean(it.body,StoreResBody::class.java)
+//                        L.e("o--$o")
+//                        L.e("listener--$listener")
+
+                        listener.onSuccess(o!!)
+                    } else {//请求失败
+                        listener.onError(errBean.des!!)
+                    }
+
+                },{
+            L.e("数据请求失败: $it")
+            it.toString()
+            listener.onError(it.toString())
+
+        },{
+            //            L.i("mvp--complete")
+        }
+        )
+
+    }
+
+    override fun loadStore(listener: MVPListener<StoreResBody>) {
+        loadStore(1,0,1,1,1,listener)
+    }
 
 }

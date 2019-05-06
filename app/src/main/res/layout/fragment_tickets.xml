@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:cp="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="票务页面"
+        />
+
+    <com.lottchina.baselib.widget.CpItemView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        cp:left_img_drawable="@drawable/img_avatar_default"
+        cp:cp_text="张三"
+        cp:cp_text_tips="0 张"
+        ></com.lottchina.baselib.widget.CpItemView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_avatar_default"
+        android:visibility="gone"
+        />
+</LinearLayout>

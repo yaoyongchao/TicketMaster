@@ -101,6 +101,13 @@ abstract class BaseActivity : AppCompatActivity() , CustomToolBar.OnClickLeftLis
     }
 
     /**
+     * 是否显示标题栏
+     */
+    fun showToolbar(bool: Boolean) {
+        customToolBar!!.visibility = if (bool) View.VISIBLE else View.GONE
+    }
+
+    /**
      * Toolbar 左边ICON点击事件
      */
     override fun onClickLeft(view: View) {

@@ -20,6 +20,7 @@ object Command {
     val CMD_STATION_GET_VERIFYCODE = "U01"
     val CMD_STATION_VERIFYCODE_LOGIN = "U02"
     val CMD_STATION_INFO_UPDATE = "S03"
+    //获取用户详情
     val CMD_STATION_GET_DETAIL = "S04"
 
     val CMD_STATION_ADD_TERMINAL = "ST01"

@@ -113,7 +113,6 @@
                         android:layout_weight="1"
                         android:hint="@string/please_select_login_account"
                         android:drawableLeft="@mipmap/ic_cpj"
-                        android:drawableRight="@mipmap/ic_lower_triangle"
                         android:enabled="false"
                         android:clickable="true"
                         style="@style/edtLogin" />
@@ -124,7 +123,7 @@
                         android:layout_height="wrap_content"
                         android:src="@mipmap/ic_lower_triangle"
                         android:layout_marginRight="8dp"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         />
 
                 </LinearLayout>

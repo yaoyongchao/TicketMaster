@@ -10,5 +10,6 @@ class RouteUrl {
         const val startup = "/login/startup"
         const val login = "/login/login"
         const val binding = "/login/binding"
+        const val home = "/home/home"
     }
 }

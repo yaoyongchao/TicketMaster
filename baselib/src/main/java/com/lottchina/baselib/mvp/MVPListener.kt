@@ -1,5 +1,7 @@
 package com.vcaidian.wclib.mvp
 
+import com.vcaidian.wclib.wc.ErrBean
+
 /**
  * Author: Austin
  * Time: 2018/7/18
@@ -10,5 +12,5 @@ interface MVPListener<T> {
 
     fun onError(error: String)
 
-//    fun onErrorBean(errorBean: ErrBean)
+    fun onErrorBean(errorBean: ErrBean){}
 }

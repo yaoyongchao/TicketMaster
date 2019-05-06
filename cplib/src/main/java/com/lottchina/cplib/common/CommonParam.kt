@@ -16,4 +16,5 @@ object CommonParam {
     val WX_CODE = "weixincode"
 
     val USER_TYPE = "station"
+    val TERMINAL_ID = "TerminalId"
 }

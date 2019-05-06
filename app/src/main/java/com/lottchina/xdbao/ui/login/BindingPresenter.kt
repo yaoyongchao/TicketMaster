@@ -2,7 +2,7 @@ package com.lottchina.xdbao.ui.login
 
 import com.lottchina.baselib.utils.L
 import com.lottchina.cplib.data.bean.BindingStationBean
-import com.lottchina.cplib.data.body.login.BindingRequBody
+import com.lottchina.cplib.data.bean.body.login.BindingRequBody
 import com.vcaidian.wclib.mvp.MVPListener
 
 /**
