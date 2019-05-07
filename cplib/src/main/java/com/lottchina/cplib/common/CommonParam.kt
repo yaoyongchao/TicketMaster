@@ -17,4 +17,5 @@ object CommonParam {
 
     val USER_TYPE = "station"
     val TERMINAL_ID = "TerminalId"
+    val STATION = "station"
 }

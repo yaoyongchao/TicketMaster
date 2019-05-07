@@ -25,5 +25,10 @@
     <string name="award">派奖</string>
     <string name="redemption">兑中奖票</string>
     <string name="refund">退款</string>
+    <string name="unfinished">未完成</string>
+    <string name="promotion">推广渠道</string>
+    <string name="parameter_settings">参数设置</string>
+    <string name="product_information">产品信息</string>
+    <string name="sign_out">退出登录</string>
 
 </resources>

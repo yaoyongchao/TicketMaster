@@ -14,6 +14,7 @@ import com.lottchina.xdbao.ui.lotterybuyer.LotteryBuyerFragment
 import com.lottchina.xdbao.ui.story.OurStoreFragment
 import com.lottchina.xdbao.ui.ticket.TicketsFragment
 import com.vcaidian.customer.utils.RouteUrl
+import com.vcaidian.wclib.base.BaseFragment
 import com.vcaidian.wclib.utils.TabUtils
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -21,7 +22,7 @@ import kotlinx.android.synthetic.main.activity_home.*
 class HomeActivity : BaseActivity(), ViewPager.OnPageChangeListener {
     private  var tabTitles = mutableListOf(R.string.tab1,R.string.tab2,R.string.tab3)
     private  var tabImgs = mutableListOf(R.drawable.tab1_selector,R.drawable.tab2_selector,R.drawable.tab3_selector)
-    private  var tabFragments = mutableListOf(TicketsFragment.instance,LotteryBuyerFragment.instance,OurStoreFragment.instance)
+    private  var tabFragments = mutableListOf<BaseFragment>()
     private lateinit var homePagerAdapter: HomePagerAdapter
     override fun layoutId(): Int {
         return R.layout.activity_home
@@ -35,13 +36,18 @@ class HomeActivity : BaseActivity(), ViewPager.OnPageChangeListener {
     override fun onResume() {
         super.onResume()
 
-        if (tabTitles.size > 2) {
-            tabImgs.removeAt(1)
-            tabTitles.removeAt(1)
-            tabFragments.removeAt(1)
-            TabUtils.setTabsImg(tablayout,layoutInflater,tabTitles,tabImgs)
-            homePagerAdapter.notifyDataSetChanged()
-        }
+//        if (tabTitles.size > 2) {
+//            tabImgs.removeAt(1)
+//            tabTitles.removeAt(1)
+//            tabFragments.removeAt(1)
+//            TabUtils.setTabsImg(tablayout,layoutInflater,tabTitles,tabImgs)
+//            homePagerAdapter.notifyDataSetChanged()
+//        }
+
+//        tabFragments
+
+
+
 
     }
 
@@ -49,9 +55,14 @@ class HomeActivity : BaseActivity(), ViewPager.OnPageChangeListener {
 //        tabTitles = arrayOf(R.string.tab1,R.string.tab2,R.string.tab3)
 //        tabImgs = arrayOf(R.drawable.tab1_selector,R.drawable.tab2_selector,R.drawable.tab3_selector)
 //        tabFragments = arrayOf(TicketsFragment.instance,LotteryBuyerFragment.instance,OurStoreFragment.instance)
+        tabFragments.add(TicketsFragment.instance)
+        tabFragments.add(LotteryBuyerFragment.instance)
+        tabFragments.add(OurStoreFragment.instance)
         homePagerAdapter = HomePagerAdapter(supportFragmentManager)
 //        TabUtils.setTabsImg(tablayout,layoutInflater,tabTitles,tabImgs)
         viewpager.adapter = homePagerAdapter
+        TabUtils.setTabsImg(tablayout,layoutInflater,tabTitles,tabImgs)
+        homePagerAdapter.notifyDataSetChanged()
 
     }
 
@@ -76,7 +87,7 @@ class HomeActivity : BaseActivity(), ViewPager.OnPageChangeListener {
     inner class HomePagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment {
-            return tabFragments[position]
+            return tabFragments.get(position)
         }
 
         override fun getCount(): Int {

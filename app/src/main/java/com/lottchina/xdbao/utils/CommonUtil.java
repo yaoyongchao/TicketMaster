@@ -1,5 +1,7 @@
 package com.lottchina.xdbao.utils;
 
+import com.lottchina.cplib.data.bean.BindingStationBean;
+import com.lottchina.cplib.data.bean.Customer;
 import com.lottchina.cplib.data.bean.Terminal;
 import com.lottchina.xdbao.CpApplication;
 import com.vcaidian.customer.common.CommonParam;
@@ -62,6 +64,21 @@ public class CommonUtil {
 
     public static int getTerminalId() {
         return SPObjUtil.getInt(CpApplication.appContext,CommonParam.INSTANCE.getTERMINAL_ID(),0);
+    }
+
+    public static void saveStation(BindingStationBean station) {
+        SPObjUtil.putObject(CpApplication.appContext,station);
+    }
+
+    public static BindingStationBean getStation(){
+        return SPObjUtil.getObject(CpApplication.appContext,BindingStationBean.class);
+    }
+    public static void saveCustomer(Customer customer) {
+        SPObjUtil.putObject(CpApplication.appContext,customer);
+    }
+
+    public static Customer getCustomer(){
+        return SPObjUtil.getObject(CpApplication.appContext,Customer.class);
     }
 
 

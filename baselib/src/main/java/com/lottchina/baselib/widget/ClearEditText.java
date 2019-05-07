@@ -23,7 +23,8 @@ public class ClearEditText extends EditText implements View.OnFocusChangeListene
         TextWatcher {
     //EditText右侧的删除按钮  
     private Drawable mClearDrawable;
-    private boolean hasFoucs;  
+    private boolean hasFoucs;
+    private boolean showClear = true;
   
     public ClearEditText(Context context) {
         this(context, null);  
@@ -96,8 +97,9 @@ public class ClearEditText extends EditText implements View.OnFocusChangeListene
     @Override  
     public void onFocusChange(View v, boolean hasFocus) {
         this.hasFoucs = hasFocus;  
-        if (hasFocus) {  
-            setClearIconVisible(getText().length() > 0);  
+        if (hasFocus) {
+            if (showClear)
+                setClearIconVisible(getText().length() > 0);
         } else {  
             setClearIconVisible(false);  
         }  
@@ -107,7 +109,11 @@ public class ClearEditText extends EditText implements View.OnFocusChangeListene
         Drawable right = visible ? mClearDrawable : null;  
         setCompoundDrawables(getCompoundDrawables()[0],  
                 getCompoundDrawables()[1], right, getCompoundDrawables()[3]);  
-    }  
+    }
+
+    public void showClearIconVisible(boolean bool) {
+        this.showClear = bool;
+    }
   
     @Override  
     public void onTextChanged(CharSequence s, int start, int count, int after) {  

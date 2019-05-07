@@ -9,4 +9,5 @@ import com.lottchina.xdbao.BuildConfig
  */
 object CpApi {
     val CP_RUL = BuildConfig.HTTP_API  + ":5000/api/"
+    val CP_FILE_URL = CP_RUL + "file/"
 }

@@ -20,7 +20,6 @@ import com.vcaidian.wclib.utils.ActivityManager
 import kotlinx.android.synthetic.main.activity_login.*
 
 
-
 /**
  * @Author: Austin
  * @Date: 19-3-29
@@ -46,6 +45,7 @@ class LoginActivity : MvpBaseActivity<LoginContract.LoginView,LoginPresenter>(),
         tv_shop_name.text = bean?.nickname
         tv_owner_name.text = bean?.name
         cedt_selected.setText(bean?.terminals?.get(0)?.code)
+        cedt_selected.showClearIconVisible(false)
         cedt_password.setText("000000")
 
         termialsDialogFragment = TermialsDialogFragment(bean.getTerminals())
@@ -123,6 +123,8 @@ class LoginActivity : MvpBaseActivity<LoginContract.LoginView,LoginPresenter>(),
     override fun loadStoreSuccess(store: StoreResBody) {
         dismissDialog()
         Log.e("aa","获取店铺信心成功")
+        CommonUtil.saveStation(bean)
+//        CommonUtil.saveCustomer(store.customer)
         JumpUtil.jumpActivity(RouteUrl.home)
     }
 }
