@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:orientation="vertical"
+    xmlns:cp="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -49,5 +50,13 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <com.lottchina.baselib.widget.DropdownPopupWindow
+        android:id="@+id/llyt_drop"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+
+        ></com.lottchina.baselib.widget.DropdownPopupWindow>
 
 </LinearLayout>

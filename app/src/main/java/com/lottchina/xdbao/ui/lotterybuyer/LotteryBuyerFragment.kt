@@ -2,6 +2,7 @@ package com.lottchina.xdbao.ui.lotterybuyer
 
 import android.view.View
 import com.lottchina.baselib.utils.ScreenUtils
+import com.lottchina.baselib.widget.DropdownPopupWindow
 import com.lottchina.baselib.widget.dropdownmenu.Dic
 import com.lottchina.baselib.widget.dropdownmenu.DropDownMenu
 import com.lottchina.baselib.widget.dropdownmenu.Madapter
@@ -28,6 +29,7 @@ class LotteryBuyerFragment : BaseFragment(),View.OnClickListener {
     private lateinit var listItem:View
     private lateinit var listView: View
     private lateinit var dropDownMenu: DropDownMenu
+    private lateinit var list1: ArrayList<ArrayList<String>>
 
     companion object {
         // 单例模式： 双重校验锁式
@@ -57,6 +59,20 @@ class LotteryBuyerFragment : BaseFragment(),View.OnClickListener {
         dropDownMenu.setShowName("name");
         dropDownMenu.setSelectName("code");
 
+        var l1 = ArrayList<String>()
+        l1.add("1")
+        l1.add("2")
+        l1.add("3")
+        l1.add("4")
+        var l2 = ArrayList<String>()
+        l2.add("11")
+        l2.add("22")
+        l2.add("33")
+        l2.add("44")
+        l2.add("55")
+        list1 = ArrayList<ArrayList<String>>()
+
+        rootView.llyt_drop.setList(list1)
 
     }
 
