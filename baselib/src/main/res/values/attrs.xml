@@ -90,8 +90,11 @@
     <declare-styleable name="CpItemView">
         <attr name="show_left_img" format="boolean" />
         <attr name="left_img_drawable" format="reference|integer" />
+        <attr name="right_img_drawable" format="reference|integer" />
         <attr name="left_img_width" format="dimension" />
         <attr name="left_img_height" format="dimension" />
+        <attr name="right_img_width" format="dimension" />
+        <attr name="right_img_height" format="dimension" />
         <attr name="cp_text" format="string" />
         <attr name="cp_text_tips" format="string" />
         <attr name="show_border_bottom" format="boolean" />
@@ -114,6 +117,22 @@
         <!--<attr name="chk_marginRight" format="dimension" />-->
         <!--<attr name="isChecked" format="boolean" />-->
         <!--<attr name="title_goneMarginLeft" format="dimension" />-->
+    </declare-styleable>
+
+    <declare-styleable name="CpItemCheckBox">
+        <!--<attr name="show_left_img" format="boolean" />-->
+        <!--<attr name="left_img_drawable" format="reference|integer" />-->
+        <!--<attr name="right_img_drawable" format="reference|integer" />-->
+        <!--<attr name="left_img_width" format="dimension" />-->
+        <!--<attr name="left_img_height" format="dimension" />-->
+        <!--<attr name="right_img_width" format="dimension" />-->
+        <!--<attr name="right_img_height" format="dimension" />-->
+        <attr name="ckb_text" format="string" />
+        <!--<attr name="cp_text_tips" format="string" />-->
+        <attr name="show_ckb_border_bottom" format="boolean" />
+        <attr name="cp_checked" format="boolean" />
+        <attr name="show_ckb_border_top" format="boolean" />
+        <attr name="show_ckb_view_top" format="boolean" />
     </declare-styleable>
 
 </resources>

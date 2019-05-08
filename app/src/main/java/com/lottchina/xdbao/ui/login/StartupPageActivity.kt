@@ -17,7 +17,8 @@ import kotlinx.android.synthetic.main.activity_startup_page.*
  */
 @Route(path = RouteUrl.startup)
 class StartupPageActivity : BaseActivity() {
-    private val time : Long = 1000 * 2
+//    private val time : Long = 1000 * 1
+    private val time : Long = 100 * 1
     override fun layoutId(): Int {
         return R.layout.activity_startup_page
     }

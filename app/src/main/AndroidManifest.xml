@@ -10,12 +10,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.home.HomeActivity"></activity>
+        <activity android:name=".ui.story.settings.SettingsActivity"></activity>
+        <activity android:name=".ui.story.AboutUsActivity" />
+        <activity android:name=".ui.story.ProductInforActivity" />
+        <activity android:name=".ui.story.personalstores.PersonalStoresActivity" />
+        <activity android:name=".demo.TwoActivity" />
+        <activity android:name=".ui.home.HomeActivity" />
         <activity android:name=".ui.login.BindingActivity" />
         <activity android:name=".ui.login.LoginActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".demo.ThreeActivity" />
-        <activity android:name=".demo.TwoActivity" />
         <activity
             android:name=".ui.login.StartupPageActivity"
             android:theme="@style/splashTheme">

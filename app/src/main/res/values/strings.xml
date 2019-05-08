@@ -12,6 +12,7 @@
     <string name="error_phone">您输入的手机号有误！</string>
     <string name="shop_name">店铺名称：</string>
     <string name="owner_name">店主姓名：</string>
+    <string name="owner_name1">店主姓名</string>
     <string name="please_select_login_account">请选择登录账号</string>
     <string name="init_pass">初始密码为000000，可在微彩之家——>微彩店设置——>销售员——>销售员管理页面设置登录密码。</string>
     <string name="login_not_empty">登录账号不能为空。</string>
@@ -30,5 +31,16 @@
     <string name="parameter_settings">参数设置</string>
     <string name="product_information">产品信息</string>
     <string name="sign_out">退出登录</string>
+    <string name="lottery_priend_amount">彩友总数</string>
+    <string name="advance_deposit">总预存款</string>
+    <string name="run_off">流失彩友</string>
+    <string name="personal_stores">我的彩店</string>
+    <string name="phone_number">手机号码</string>
+    <string name="store_name">彩店名称</string>
+    <string name="store_address">彩店地址</string>
+    <string name="store_picture">彩店图片</string>
+    <string name="store_description">彩店描述</string>
+    <string name="version_check">版本检查</string>
+    <string name="about_us">关于我们</string>
 
 </resources>

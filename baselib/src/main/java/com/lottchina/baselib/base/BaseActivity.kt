@@ -19,7 +19,7 @@ import com.vcaidian.wclib.widget.LoadingDialog
  * Date: 19-3-28
  * Description: Activity基类
  */
-abstract class BaseActivity : AppCompatActivity() , CustomToolBar.OnClickLeftListener, CustomToolBar.OnClickRightListener {
+abstract class BaseActivity : AppCompatActivity() , CustomToolBar.OnClickLeftListener, CustomToolBar.OnClickRightListener,View.OnClickListener {
     private val BASE_VIEW_ID: Int = R.layout.activity_base
     lateinit var mContext: Context
     lateinit var customToolBar: CustomToolBar
@@ -78,6 +78,10 @@ abstract class BaseActivity : AppCompatActivity() , CustomToolBar.OnClickLeftLis
      */
     abstract fun initListener()
 
+    override fun onClick(v: View?) {
+
+    }
+
     /**
      * 设置标题
      */
@@ -118,6 +122,10 @@ abstract class BaseActivity : AppCompatActivity() , CustomToolBar.OnClickLeftLis
      * Toolbar 右边ICON点击事件
      */
     override fun onClickRight(view: View) {
+    }
+
+    fun showRightIcon(visibility: Int) {
+        customToolBar?.showRightIcon(visibility)
     }
 
     override fun onStart() {

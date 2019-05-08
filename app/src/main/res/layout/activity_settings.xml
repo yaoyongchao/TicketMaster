@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cp="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.lottchina.xdbao.ui.story.settings.SettingsActivity">
+
+    <com.lottchina.baselib.widget.CpItemView
+        style="@style/WidthHeightMW"
+        cp:cp_text="每次取票张数"
+        cp:cp_text_tips="1(张)"
+        />
+
+    <com.lottchina.baselib.widget.CpItemCheckBox
+        android:id="@+id/ask"
+        style="@style/WidthHeightMW"
+        cp:ckb_text="接单后询问出票"
+        />
+
+</LinearLayout>

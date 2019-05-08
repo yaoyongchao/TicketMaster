@@ -18,6 +18,9 @@
     <color name="translucent">#e0000000</color><!-- 半透明 -->
     <color name="transparent">#00000000</color><!-- 透明   -->
 
+    <!--遮罩层-->
+    <color name="maskLayer">#56000000</color>
+
     <!--默认背景色-->
     <color name="bgDefault">#f5f5f5</color>
     <!--标题背景颜色-->
@@ -50,6 +53,7 @@
     <color name="tab_bg">#fcfcfc</color>
     <color name="tab_div">#d6d6d6</color>
     <color name="layoutPress">#fffff9e3</color>
+
 
 
 
@@ -202,6 +206,7 @@
     <color name="mediumblue">#0000CD</color> <!--中兰色 -->
     <color name="darkblue">#00008B</color> <!--暗蓝色 -->
     <color name="navy">#000080</color>
+
 
 
 </resources>

@@ -1,28 +1,19 @@
 package com.lottchina.xdbao.demo
 
-import com.lottchina.baselib.base.BaseActivity
+import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+
 import com.lottchina.xdbao.R
 
-class TwoActivity : BaseActivity() {
-    override fun layoutId(): Int {
-        return R.layout.activity_two
-    }
+import java.util.ArrayList
+import java.util.Arrays
 
-    override fun initView() {
-        addFragment(R.id.llyt_common,TwoFragment())
-        showDialog()
+class TwoActivity : AppCompatActivity() {
+    private var list: ArrayList<String>? = null
 
-    }
-
-    override fun initData() {
-    }
-
-    override fun initListener() {
-    }
-
-
-    /*override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_two)
-    }*/
+        list = Arrays.asList(*resources.getStringArray(R.array.lottery_friend_sort)) as ArrayList<String>
+    }
 }

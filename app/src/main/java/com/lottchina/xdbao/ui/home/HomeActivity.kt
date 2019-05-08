@@ -11,7 +11,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.lottchina.baselib.base.BaseActivity
 import com.lottchina.xdbao.R
 import com.lottchina.xdbao.ui.lotterybuyer.LotteryBuyerFragment
-import com.lottchina.xdbao.ui.story.OurStoreFragment
+import com.lottchina.xdbao.ui.story.StoreFragment
 import com.lottchina.xdbao.ui.ticket.TicketsFragment
 import com.vcaidian.customer.utils.RouteUrl
 import com.vcaidian.wclib.base.BaseFragment
@@ -54,10 +54,10 @@ class HomeActivity : BaseActivity(), ViewPager.OnPageChangeListener {
     private fun initViewPager() {
 //        tabTitles = arrayOf(R.string.tab1,R.string.tab2,R.string.tab3)
 //        tabImgs = arrayOf(R.drawable.tab1_selector,R.drawable.tab2_selector,R.drawable.tab3_selector)
-//        tabFragments = arrayOf(TicketsFragment.instance,LotteryBuyerFragment.instance,OurStoreFragment.instance)
+//        tabFragments = arrayOf(TicketsFragment.instance,LotteryBuyerFragment.instance,StoreFragment.instance)
         tabFragments.add(TicketsFragment.instance)
         tabFragments.add(LotteryBuyerFragment.instance)
-        tabFragments.add(OurStoreFragment.instance)
+        tabFragments.add(StoreFragment.instance)
         homePagerAdapter = HomePagerAdapter(supportFragmentManager)
 //        TabUtils.setTabsImg(tablayout,layoutInflater,tabTitles,tabImgs)
         viewpager.adapter = homePagerAdapter

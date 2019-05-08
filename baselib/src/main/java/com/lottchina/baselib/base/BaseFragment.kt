@@ -10,6 +10,8 @@ import android.widget.LinearLayout
 import com.lottchina.baselib.R
 import com.lottchina.baselib.utils.L
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
+import com.scwang.smartrefresh.layout.api.RefreshLayout
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener
 import com.vcaidian.baselib.utils.ToastUtil
 import com.vcaidian.wclib.widget.LoadingDialog
 import kotlinx.android.synthetic.main.fragment_base.view.*
@@ -19,7 +21,7 @@ import kotlinx.android.synthetic.main.fragment_base.view.*
  * Date: 19-3-28
  * Description: Fragment基类
  */
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment : Fragment(),View.OnClickListener , OnRefreshLoadMoreListener {
     private val BASE_VIEW_ID: Int = R.layout.fragment_base
     lateinit var mContext: Context
     lateinit var rootView: View
@@ -65,6 +67,7 @@ abstract class BaseFragment : Fragment() {
         smartRefreshLayout.setEnableOverScrollBounce(isRefreshView())
         //禁止越界拖动
         smartRefreshLayout.setEnableOverScrollDrag(isRefreshView())
+        smartRefreshLayout.setOnRefreshLoadMoreListener(this)
         return smartRefreshLayout
     }
 
@@ -72,6 +75,13 @@ abstract class BaseFragment : Fragment() {
      * 是否刷新布局
      */
     open fun isRefreshView():Boolean {
+        return false
+    }
+
+    /**
+     * 是否刷新布局
+     */
+    open fun isLoadMoreView():Boolean {
         return false
     }
 
@@ -201,4 +211,16 @@ abstract class BaseFragment : Fragment() {
     fun toastLong(msg : String) {
         ToastUtil.showLong(mContext,msg)
     }
+
+    override fun onClick(v: View?) {
+
+    }
+
+    override fun onLoadMore(refreshLayout: RefreshLayout?) {
+    }
+
+    override fun onRefresh(refreshLayout: RefreshLayout?) {
+    }
+
+
 }

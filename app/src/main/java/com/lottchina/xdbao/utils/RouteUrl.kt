@@ -11,5 +11,9 @@ class RouteUrl {
         const val login = "/login/login"
         const val binding = "/login/binding"
         const val home = "/home/home"
+        const val personalStores = "/store/personalStores"
+        const val productInfor = "/store/productInfor"
+        const val aboutUs = "/store/aboutUs"
+        const val settings = "/store/settings"
     }
 }

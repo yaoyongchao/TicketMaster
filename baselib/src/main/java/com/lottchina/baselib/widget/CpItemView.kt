@@ -8,9 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
-import kotlinx.android.synthetic.main.layout_cp_item_view.view.*
-import android.view.ViewGroup
 import com.lottchina.baselib.R
+import kotlinx.android.synthetic.main.layout_cp_item_view.view.*
 
 
 /**
@@ -41,6 +40,7 @@ class CpItemView @JvmOverloads constructor(context: Context, attrs: AttributeSet
         if (attributes != null) {
             initLeftImg()
             initTv()
+            initRightImg()
             initBorder()
             attributes.recycle()
         }
@@ -57,6 +57,23 @@ class CpItemView @JvmOverloads constructor(context: Context, attrs: AttributeSet
             view.img_left.visibility = View.GONE
         } else {
             view.img_left.setImageResource(leftDrawable)
+        }
+    }
+
+    private fun initRightImg() {
+        val rightDrawable = attributes.getResourceId(R.styleable.CpItemView_right_img_drawable, -1)
+
+        if (rightDrawable == -1) {
+            view.img_right.visibility = View.GONE
+        } else {
+            var rightWidth = attributes.getDimension(R.styleable.CpItemView_right_img_width,0f)
+            var rightHeight = attributes.getDimension(R.styleable.CpItemView_right_img_height,0f)
+            val params = view.img_right.layoutParams
+            params.width = rightWidth.toInt()
+            params.height = rightHeight.toInt()
+            view.img_right.layoutParams = params
+            view.tv_tips.visibility = View.GONE
+            view.img_right.setImageResource(rightDrawable)
         }
     }
 
@@ -81,6 +98,26 @@ class CpItemView @JvmOverloads constructor(context: Context, attrs: AttributeSet
 //        layoutParams = setViewMargin(this,0,0,20,0)
 
 
+    }
+
+    public fun setTvTips(text: CharSequence) {
+        view.tv_tips?.setText(text)
+    }
+
+    public fun setTvTips(resid: Int) {
+        view.tv_tips?.setText(resid)
+    }
+
+    public fun setTv(text: CharSequence) {
+        view.tv?.setText(text)
+    }
+
+    public fun setTv(resid: Int) {
+        view.tv?.setText(resid)
+    }
+
+    public fun getRightImageView():ImageView {
+        return view.img_right
     }
 
     /*

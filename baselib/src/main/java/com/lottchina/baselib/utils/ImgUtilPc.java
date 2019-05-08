@@ -56,4 +56,13 @@ public class ImgUtilPc {
     public static void loadGifImg (Context context, int imgUrl, ImageView img)  {
         Glide.with(context).asGif().load(imgUrl).into(img);
     }
+
+    public static void zoomImg(Context context, String imgUrl, ImageView img) {
+
+
+        Glide.with(context)
+                .asBitmap()
+                .load(imgUrl)
+                .into(new TransformationUtils(img));
+    }
 }

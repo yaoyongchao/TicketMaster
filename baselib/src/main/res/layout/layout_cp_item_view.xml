@@ -20,7 +20,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/item_height"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/item_height"
         android:layout_weight="1"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -74,16 +75,22 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             />
-
+        <ImageView
+            android:id="@+id/img_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            />
         <TextView
             android:id="@+id/tv_tips"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="0 单"
             android:layout_marginRight="@dimen/cp_tv_marginRight"
-            android:textSize="@dimen/txt_small"
             android:textColor="@color/txtGrey"
             />
+            <!--android:textSize="@dimen/txt_small"-->
 
         <ImageView
             android:layout_width="wrap_content"

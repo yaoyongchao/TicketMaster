@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:orientation="horizontal"
-            android:background="@drawable/bg_layout_selector"
+            android:background="@drawable/bg_layout_border_selector"
             android:gravity="center_vertical"
             android:layout_marginTop="@dimen/item_margin_top"
             >
@@ -70,7 +70,6 @@
                         android:textColor="@color/txtGrey"
                         tools:text="1111111"
                         />
-
 
                 </LinearLayout>
 
@@ -131,13 +130,9 @@
             android:gravity="center"
             android:textSize="@dimen/txt_large"
             android:text="@string/sign_out"
-            android:background="@drawable/bg_layout_selector"
+            android:background="@drawable/bg_layout_border_selector"
             android:layout_marginTop="@dimen/item_margin_top"
             />
 
-
-
     </LinearLayout>
-
-
 </android.support.v4.widget.NestedScrollView>

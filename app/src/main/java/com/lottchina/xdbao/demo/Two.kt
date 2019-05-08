@@ -1,10 +1,15 @@
 package com.lottchina.xdbao.demo
 
-import java.util.ArrayList
+import java.util.*
 
+/**
+ * Author: Austin
+ * Date: 19-5-8
+ * Description:
+ */
 class Two {
-    private fun setList() {
-        val list = ArrayList<List<String>>()
-        list.clear()
+    fun test() {
+        val strs = arrayOf("1", "2")
+        val list = Arrays.asList(*strs)
     }
 }

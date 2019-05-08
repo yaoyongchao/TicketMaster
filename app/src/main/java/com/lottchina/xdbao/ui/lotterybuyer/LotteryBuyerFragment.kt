@@ -1,18 +1,11 @@
 package com.lottchina.xdbao.ui.lotterybuyer
 
+import android.util.Log
 import android.view.View
-import com.lottchina.baselib.utils.ScreenUtils
-import com.lottchina.baselib.widget.DropdownPopupWindow
-import com.lottchina.baselib.widget.dropdownmenu.Dic
-import com.lottchina.baselib.widget.dropdownmenu.DropDownMenu
-import com.lottchina.baselib.widget.dropdownmenu.Madapter
-import com.lottchina.baselib.widget.dropdownmenu.SearchAdapter
+import com.lottchina.baselib.ui.fragment.DropDownFragment
 import com.lottchina.xdbao.R
 import com.vcaidian.wclib.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_lottery_buyer.*
-import kotlinx.android.synthetic.main.fragment_lottery_buyer.view.*
-
-
+import java.util.*
 
 
 /**
@@ -21,15 +14,11 @@ import kotlinx.android.synthetic.main.fragment_lottery_buyer.view.*
  * Description:
  */
 class LotteryBuyerFragment : BaseFragment(),View.OnClickListener {
-
-
-
-    private lateinit var adapter1: SearchAdapter
-    private lateinit var adapter2: SearchAdapter
-    private lateinit var listItem:View
-    private lateinit var listView: View
-    private lateinit var dropDownMenu: DropDownMenu
-    private lateinit var list1: ArrayList<ArrayList<String>>
+    private lateinit var dropDownFragment: DropDownFragment
+    private var listSort = ArrayList<String>()
+    private var listFilter = ArrayList<String>()
+    private lateinit var arr1 : ArrayList<String>
+    private lateinit var arr2 : ArrayList<String>
 
     companion object {
         // 单例模式： 双重校验锁式
@@ -44,83 +33,42 @@ class LotteryBuyerFragment : BaseFragment(),View.OnClickListener {
     }
 
     override fun initView() {
-
-        dropDownMenu = DropDownMenu.getInstance(mContext, object : DropDownMenu.OnListCkickListence {
-            override fun search(code: String, type: String) {
-                println("======$code=========$type")
-            }
-
-            override fun changeSelectPanel(madapter: Madapter, view: View) {
-
+        listSort.add("默认")
+        listSort.add("活跃时间由近到远")
+        listSort.add("活跃时间由远到近")
+        listSort.add("到店时间由近到远")
+        listSort.add("到店时间由远到近")
+        listSort.add("账户余额由多到少")
+        listSort.add("账户余额由少到多")
+        listFilter.add("全部")
+        listFilter.add("到店彩友")
+        listFilter.add("离店彩友")
+        listFilter.add("取消关注彩友")
+        dropDownFragment = DropDownFragment.instance("排序","筛选",listSort,listFilter)
+        dropDownFragment.setOnItemClickListener(object : DropDownFragment.OnItemClickListener{
+            override fun onItemClick(txtPosition: Int, position1: Int, position2: Int) {
+                Log.e("aa","--$txtPosition-----${listFilter.get(position1)} --------------${listFilter.get(position2)}")
             }
         })
-        dropDownMenu.setIndexColor(com.lottchina.xdbao.R.color.colorAccent);
-        dropDownMenu.setShowShadow(true);
-        dropDownMenu.setShowName("name");
-        dropDownMenu.setSelectName("code");
+        addFragment(R.id.llyt_drop,dropDownFragment)
 
-        var l1 = ArrayList<String>()
-        l1.add("1")
-        l1.add("2")
-        l1.add("3")
-        l1.add("4")
-        var l2 = ArrayList<String>()
-        l2.add("11")
-        l2.add("22")
-        l2.add("33")
-        l2.add("44")
-        l2.add("55")
-        list1 = ArrayList<ArrayList<String>>()
+        addFragment(R.id.llyt_friend,LotteryFriendFragment())
 
-        rootView.llyt_drop.setList(list1)
+
 
     }
 
 
     override fun initListener() {
-        rootView.sex.setOnClickListener(this)
-        rootView.nation.setOnClickListener(this)
-
-
 
     }
 
     override fun initData() {
-        adapter1 = SearchAdapter(mContext)
-        var sexResult = mutableListOf<Dic>()
-        sexResult.add(Dic("000", "全部"))
-        sexResult.add(Dic("001", "男"))
-        sexResult.add(Dic("002", "女"))
-        adapter1.setItems(sexResult)
-
-        adapter2 = SearchAdapter(mContext)
-        var nationResult = mutableListOf<Dic>()
-        nationResult.add(Dic("000", "全部"))
-        nationResult.add(Dic("001", "汉族"))
-        nationResult.add(Dic("002", "回族"))
-        nationResult.add(Dic("003", "满族"))
-        nationResult.add(Dic("004", "布依族"))
-        nationResult.add(Dic("005", "保安族"))
-        nationResult.add(Dic("006", "保安族"))
-        nationResult.add(Dic("007", "保安族"))
-        nationResult.add(Dic("008", "保安族"))
-
-        adapter2.setItems(nationResult)
-
-        listItem = layoutInflater.inflate(com.lottchina.xdbao.R.layout.item_listview,null,false)
-        listView = layoutInflater.inflate(com.lottchina.xdbao.R.layout.pup_selectlist,null,false)
 
     }
     override fun onClick(v: View?) {
         when(v?.id) {
-            R.id.sex ->
-                dropDownMenu.showSelectList(ScreenUtils.getScreenWidth(mContext),
-                        ScreenUtils.getScreenHeight(mContext), adapter1,
-                        listView, listItem,sex, sex_text, "cyry.xbdm", false)
-            R.id.nation ->
-                dropDownMenu.showSelectList(ScreenUtils.getScreenWidth(mContext),
-                        ScreenUtils.getScreenHeight(mContext), adapter2,
-                        listView, listItem,nation, nation_text, "cyry.mzdm", false)
+
         }
 
     }

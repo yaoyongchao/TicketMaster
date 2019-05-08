@@ -83,7 +83,6 @@ class LoginActivity : MvpBaseActivity<LoginContract.LoginView,LoginPresenter>(),
                 termialsDialogFragment?.show(supportFragmentManager,"selectedTerminal")
             R.id.btn_login ->
                 login()
-
         }
     }
 
