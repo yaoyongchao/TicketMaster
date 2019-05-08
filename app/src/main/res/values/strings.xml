@@ -42,5 +42,9 @@
     <string name="store_description">彩店描述</string>
     <string name="version_check">版本检查</string>
     <string name="about_us">关于我们</string>
+    <string name="beep_setting">提示音设置</string>
+    <string name="pending_payment_program">待收款方案</string>
+    <string name="waiting_for_ticket_order">待出票订单</string>
+    <string name="other">其他</string>
 
 </resources>

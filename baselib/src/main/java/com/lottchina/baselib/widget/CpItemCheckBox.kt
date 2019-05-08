@@ -25,7 +25,6 @@ class CpItemCheckBox @JvmOverloads constructor(context: Context, attrs: Attribut
     private val imgLeftSize = 40
     private lateinit var view: View
     private lateinit var attributes: TypedArray
-    private lateinit var listener: CompoundButton.OnCheckedChangeListener
 
     init {
         initViews(context, attrs)
@@ -51,12 +50,10 @@ class CpItemCheckBox @JvmOverloads constructor(context: Context, attrs: Attribut
     private fun initCkb() {
         val checked = attributes.getBoolean(R.styleable.CpItemCheckBox_cp_checked,true)
         view.ckb.isChecked = checked
-        if (listener!=null)
-            view.ckb.setOnCheckedChangeListener(listener)
     }
 
     public fun setOnCheckedChangeListener(lis: CompoundButton.OnCheckedChangeListener) {
-        listener = lis
+        view?.ckb?.setOnCheckedChangeListener(lis)
     }
 
 

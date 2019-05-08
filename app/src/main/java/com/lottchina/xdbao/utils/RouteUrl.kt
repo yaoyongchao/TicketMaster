@@ -15,5 +15,7 @@ class RouteUrl {
         const val productInfor = "/store/productInfor"
         const val aboutUs = "/store/aboutUs"
         const val settings = "/store/settings"
+        const val beepSetting = "/store/beepSetting"
+        const val printerSetting = "/store/printerSetting"
     }
 }
