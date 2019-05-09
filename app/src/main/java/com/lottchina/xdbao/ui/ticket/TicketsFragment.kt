@@ -3,6 +3,8 @@ package com.lottchina.xdbao.ui.ticket
 import android.util.Log
 import android.view.View
 import com.lottchina.xdbao.R
+import com.vcaidian.customer.utils.JumpUtil
+import com.vcaidian.customer.utils.RouteUrl
 import com.vcaidian.wclib.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_tickets.view.*
 
@@ -44,9 +46,9 @@ class TicketsFragment : BaseFragment(),View.OnClickListener {
         Log.e("aa","点击了")
         when (v?.id) {
             R.id.cv_unpaid -> toast("未支付")
-            R.id.cv_order -> toast("订单取票")
+            R.id.cv_order -> JumpUtil.jumpActivity(RouteUrl.orderList)
             R.id.cv_billed -> toast("已出单")
-            R.id.cv_award -> toast("派奖")
+            R.id.cv_award -> JumpUtil.jumpActivity(RouteUrl.award)
             R.id.cv_redemption -> toast("对中奖票")
             R.id.cv_refund -> toast("退款")
         }

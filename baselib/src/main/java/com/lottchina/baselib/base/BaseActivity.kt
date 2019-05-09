@@ -13,6 +13,7 @@ import com.vcaidian.wclib.utils.ActivityManager
 import com.vcaidian.wclib.utils.ActivityUtil
 import com.vcaidian.wclib.widget.CustomToolBar
 import com.vcaidian.wclib.widget.LoadingDialog
+import gorden.rxbus2.RxBus
 
 /**
  * Author: Austin
@@ -32,6 +33,7 @@ abstract class BaseActivity : AppCompatActivity() , CustomToolBar.OnClickLeftLis
         super.onCreate(savedInstanceState)
         setContentView(initRootView())
         ActivityManager.instance.addActivity(this)
+        RxBus.get().register(this)
         loadingDialog = LoadingDialog(mContext)
         initView()
         initListener()
@@ -152,7 +154,9 @@ abstract class BaseActivity : AppCompatActivity() , CustomToolBar.OnClickLeftLis
         super.onDestroy()
         L.d("")
         dismissDialog()
+        RxBus.get().unRegister(this)
         ActivityManager.instance.removeActivity(this)
+
     }
 
     /**
@@ -192,7 +196,8 @@ abstract class BaseActivity : AppCompatActivity() , CustomToolBar.OnClickLeftLis
     fun addFragment(viewId: Int,fragment: Fragment) {
         var fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(viewId,fragment)
-        fragmentTransaction.commit()
+//        fragmentTransaction.commit()
+        fragmentTransaction.commitAllowingStateLoss()
     }
 
 

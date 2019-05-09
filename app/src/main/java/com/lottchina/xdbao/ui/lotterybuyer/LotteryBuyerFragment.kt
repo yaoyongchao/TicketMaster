@@ -50,6 +50,7 @@ class LotteryBuyerFragment : BaseFragment(),View.OnClickListener {
                 Log.e("aa","--$txtPosition-----${listFilter.get(position1)} --------------${listFilter.get(position2)}")
             }
         })
+        dropDownFragment.setBottomMarginVisibility(View.VISIBLE)
         addFragment(R.id.llyt_drop,dropDownFragment)
 
         addFragment(R.id.llyt_friend,LotteryFriendFragment())

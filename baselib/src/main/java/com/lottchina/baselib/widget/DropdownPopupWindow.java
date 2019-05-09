@@ -32,7 +32,7 @@ public class DropdownPopupWindow extends PopupWindow{
     private LayoutInflater inflater;
     private List<String> list = new ArrayList<>();
     private PopAdapter adapter;
-    private TextView tv_dissmiss;
+    private TextView tv_dissmiss,tv_bottom;
     private RecyclerView rv_drop;
     private OnItemClickListener onItemClickListener;
     private HashMap<Integer,Boolean> mapSelected;
@@ -71,6 +71,7 @@ public class DropdownPopupWindow extends PopupWindow{
             }
         });
         rv_drop = view.findViewById(R.id.rv_drop);
+        tv_bottom = view.findViewById(R.id.tv_bottom);
         setAnimationStyle(R.style.popAnim);
         initRv();
 
@@ -125,6 +126,11 @@ public class DropdownPopupWindow extends PopupWindow{
         rv_drop.setLayoutManager(layoutManager);
         rv_drop.setAdapter(adapter);*/
 
+    }
+
+    public void setTvBottomVisibility(int visibility) {
+        if (tv_bottom!=null)
+            tv_bottom.setVisibility(visibility);
     }
 
     public void setList(ArrayList<String> l) {

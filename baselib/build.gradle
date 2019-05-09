@@ -86,6 +86,8 @@ dependencies {
     //glide
     api 'com.github.bumptech.glide:glide:4.8.0'
     kapt 'com.github.bumptech.glide:compiler:4.8.0'
+    //https://github.com/XiaoQiWen/RxBus2
+    api 'lib.gorden.rxbus2:rxbus:2.0.1'
     implementation project(':cplib')
 }
 repositories {

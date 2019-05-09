@@ -222,5 +222,8 @@ abstract class BaseFragment : Fragment(),View.OnClickListener , OnRefreshLoadMor
     override fun onRefresh(refreshLayout: RefreshLayout?) {
     }
 
+    fun doActivity(path: String) {
+    }
+
 
 }

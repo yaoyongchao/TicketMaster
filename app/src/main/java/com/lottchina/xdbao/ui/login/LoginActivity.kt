@@ -120,10 +120,15 @@ class LoginActivity : MvpBaseActivity<LoginContract.LoginView,LoginPresenter>(),
     }
 
     override fun loadStoreSuccess(store: StoreResBody) {
-        dismissDialog()
+//        dismissDialog()
         Log.e("aa","获取店铺信心成功")
         CommonUtil.saveStation(bean)
 //        CommonUtil.saveCustomer(store.customer)
         JumpUtil.jumpActivity(RouteUrl.home)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        dismissDialog()
     }
 }

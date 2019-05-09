@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.lottchina.baselib.base.BaseActivity
 import com.lottchina.xdbao.R
+import com.lottchina.xdbao.net.CpSocketUtil
 import com.lottchina.xdbao.ui.lotterybuyer.LotteryBuyerFragment
 import com.lottchina.xdbao.ui.story.StoreFragment
 import com.lottchina.xdbao.ui.ticket.TicketsFragment
@@ -30,6 +31,7 @@ class HomeActivity : BaseActivity(), ViewPager.OnPageChangeListener {
 
     override fun initView() {
         showToolbar(View.GONE)
+        CpSocketUtil.instance.startSocketLink(11,"22")
         initViewPager()
     }
 

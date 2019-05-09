@@ -3,6 +3,7 @@ package com.lottchina.xdbao
 import com.alibaba.android.arouter.launcher.ARouter
 import com.lottchina.baselib.BaseApplication
 import com.lottchina.baselib.utils.L
+import com.lottchina.xdbao.net.CpSocketUtil
 
 /**
  * Author: Austin
@@ -15,6 +16,7 @@ class CpApplication: BaseApplication() {
         super.onCreate()
         L.initLogger(BuildConfig.isDebug)
         L.d("启动Application")
+        CpSocketUtil.instance.init(this)
     }
 
     override fun initViews() {

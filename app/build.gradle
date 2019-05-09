@@ -83,7 +83,7 @@ android {
             buildConfigField "Boolean", "isDebug", 'true'
             buildConfigField "String", "HTTP_API", "\"http://121.42.197.2\""
             manifestPlaceholders = [ENVIRONMENT: "appdebug",
-                                    app_icon   : "@drawable/icon2"]
+                                    app_icon   : "@mipmap/ic_launcher_test"]
         }
 
     }

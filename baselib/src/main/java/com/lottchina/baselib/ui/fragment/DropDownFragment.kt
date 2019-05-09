@@ -25,6 +25,7 @@ class DropDownFragment: BaseFragment(),View.OnClickListener {
     private lateinit var onItemClickListener: OnItemClickListener
     private var popPosition1 = 0
     private var popPosition2 = 0
+    private var visibilityBottomMargin = View.GONE
     override fun layoutId(): Int {
         return R.layout.fragment_drop_down
     }
@@ -56,11 +57,17 @@ class DropDownFragment: BaseFragment(),View.OnClickListener {
 
         dropdownPopupWindow1 = DropdownPopupWindow(mContext)
         dropdownPopupWindow2 = DropdownPopupWindow(mContext)
+        dropdownPopupWindow1.setTvBottomVisibility(visibilityBottomMargin)
+        dropdownPopupWindow2.setTvBottomVisibility(visibilityBottomMargin)
         dropdownPopupWindow1.setList(list1)
         dropdownPopupWindow2.setList(list2)
 
 
 
+    }
+
+    fun setBottomMarginVisibility(visibility: Int) {
+        visibilityBottomMargin = visibility
     }
 
     override fun initListener() {

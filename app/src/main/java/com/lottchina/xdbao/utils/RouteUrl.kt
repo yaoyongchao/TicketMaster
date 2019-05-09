@@ -17,5 +17,7 @@ class RouteUrl {
         const val settings = "/store/settings"
         const val beepSetting = "/store/beepSetting"
         const val printerSetting = "/store/printerSetting"
+        const val orderList = "/ticket/orderList"
+        const val award = "/ticket/award"
     }
 }
