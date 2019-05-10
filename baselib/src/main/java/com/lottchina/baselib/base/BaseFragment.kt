@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.lottchina.baselib.R
-import com.lottchina.baselib.utils.L
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener
@@ -148,27 +147,27 @@ abstract class BaseFragment : Fragment(),View.OnClickListener , OnRefreshLoadMor
 
     override fun onResume() {
         super.onResume()
-        L.d("onResume")
+//        L.d("onResume")
     }
 
     override fun onStart() {
         super.onStart()
-        L.d("onStart")
+//        L.d("onStart")
     }
 
     override fun onPause() {
         super.onPause()
-        L.d("onPause")
+//        L.d("onPause")
     }
 
     override fun onStop() {
         super.onStop()
-        L.d("onStop")
+//        L.d("onStop")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        L.d("onDestroy")
+//        L.d("onDestroy")
         isPrepared = false
     }
 

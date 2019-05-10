@@ -56,7 +56,7 @@ android {
         }
 
         debug {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.debug
             debuggable true
@@ -64,7 +64,7 @@ android {
     }
 
     productFlavors {
-        apprelease {
+        cprelease {
             manifestPlaceholders = [str: "releaseStr", package_name: "com.lottchina.xdbaonew"]
             applicationId "com.lottchina.xdbaonew"
             resValue "string", "app_name", "出票大师"
@@ -75,7 +75,7 @@ android {
                                     app_icon   : "@drawable/icon1"]
         }
 
-        appdebug {
+        cpdebug {
             manifestPlaceholders = [str: "devStr", package_name: "com.lottchina.xdbaonewdebug"]
             applicationId "com.lottchina.xdbaonewdebug"
             resValue "string", "app_name", "出票大师测试版"

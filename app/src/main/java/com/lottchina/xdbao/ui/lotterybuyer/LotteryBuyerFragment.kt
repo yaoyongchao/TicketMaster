@@ -47,7 +47,14 @@ class LotteryBuyerFragment : BaseFragment(),View.OnClickListener {
         dropDownFragment = DropDownFragment.instance("排序","筛选",listSort,listFilter)
         dropDownFragment.setOnItemClickListener(object : DropDownFragment.OnItemClickListener{
             override fun onItemClick(txtPosition: Int, position1: Int, position2: Int) {
-                Log.e("aa","--$txtPosition-----${listFilter.get(position1)} --------------${listFilter.get(position2)}")
+                when (txtPosition) {
+                    1 -> {
+                        Log.e("aa","--$txtPosition-----${listSort.get(position1)} --------------${listFilter.get(position2)}")
+                    }
+                    2 -> {
+                        Log.e("aa","--$txtPosition-----${listSort.get(position1)} --------------${listFilter.get(position2)}")
+                    }
+                }
             }
         })
         dropDownFragment.setBottomMarginVisibility(View.VISIBLE)

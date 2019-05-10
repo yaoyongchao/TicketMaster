@@ -16,7 +16,8 @@ class CpApplication: BaseApplication() {
         super.onCreate()
         L.initLogger(BuildConfig.isDebug)
         L.d("启动Application")
-        CpSocketUtil.instance.init(this)
+//        CpSocketUtil.instance.init(this)
+        CpSocketUtil.getInstance().init(this)
     }
 
     override fun initViews() {

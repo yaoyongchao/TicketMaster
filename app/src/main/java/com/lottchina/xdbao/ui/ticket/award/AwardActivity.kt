@@ -6,6 +6,8 @@ import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.lottchina.baselib.base.BaseActivity
 import com.lottchina.xdbao.net.CpSocketUtil
+import com.lottchina.xdbao.protocol.message.StationMessage
+import com.lottchina.xdbao.utils.CommonUtil
 import com.vcaidian.customer.utils.RouteUrl
 import gorden.rxbus2.RxBus
 import gorden.rxbus2.Subscribe
@@ -24,7 +26,7 @@ import java.util.concurrent.TimeUnit
  * @Description: 派奖
  */
 @Route(path = RouteUrl.award)
-class AwardActivity : BaseActivity() {
+class AwardActivity : BaseActivity(), CpSocketUtil.MessageListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +39,8 @@ class AwardActivity : BaseActivity() {
     override fun initView() {
         setToolbarTitle(getString(com.lottchina.xdbao.R.string.award))
         var aa: RealWebSocket
+
+        CpSocketUtil.getInstance().startSocketComm(CommonUtil.getUserId(),CommonUtil.getToken(),this)
     }
 
     override fun initData() {
@@ -59,7 +63,7 @@ class AwardActivity : BaseActivity() {
                 start()
             }
             com.lottchina.xdbao.R.id.btn2 -> {
-                CpSocketUtil.instance.startSocketLink(1,"2")
+//                CpSocketUtil.instance.startSocketLink(1,"2")
             }
         }
 
@@ -147,6 +151,10 @@ class AwardActivity : BaseActivity() {
         runOnUiThread(Runnable {
             tv1.setText( "\n\n" + text)
         })
+    }
+
+    override fun onMessage(msgList: MutableList<StationMessage>?) {
+
     }
 
 }

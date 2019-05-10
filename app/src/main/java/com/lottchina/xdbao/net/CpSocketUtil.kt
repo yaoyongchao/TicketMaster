@@ -1,3 +1,4 @@
+/*
 package com.lottchina.xdbao.net
 
 import android.content.Context
@@ -11,11 +12,13 @@ import okhttp3.Response
 import okio.ByteString
 import java.util.concurrent.TimeUnit
 
+*/
 /**
  * Author: Austin
  * Date: 19-5-9
  * Description:
- */
+ *//*
+
 class CpSocketUtil private constructor():WsStatusListener() {
     val TAG = "CpSocketUtil"
     private lateinit var context: Context
@@ -31,9 +34,11 @@ class CpSocketUtil private constructor():WsStatusListener() {
     }
 
     fun isWsManagerInitialzed()=::wsManager.isInitialized
-    /**
+    */
+/**
      * 启动Socket链接
-     */
+     *//*
+
     fun startSocketLink(userId:Int,token: String) {
         log("启动链接")
         if (isWsManagerInitialzed() && wsManager.isWsConnected) {
@@ -95,4 +100,4 @@ class CpSocketUtil private constructor():WsStatusListener() {
         if (BuildConfig.isDebug)
             Log.i(TAG,msg)
     }
-}
+}*/

@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.LinearLayout
 import com.lottchina.baselib.R
-import com.lottchina.baselib.utils.L
 import com.vcaidian.baselib.utils.ToastUtil
 import com.vcaidian.wclib.utils.ActivityManager
 import com.vcaidian.wclib.utils.ActivityUtil
@@ -132,27 +131,27 @@ abstract class BaseActivity : AppCompatActivity() , CustomToolBar.OnClickLeftLis
 
     override fun onStart() {
         super.onStart()
-        L.d("onStart")
+//        L.d("onStart")
     }
 
     override fun onResume() {
         super.onResume()
-        L.d("onResume")
+//        L.d("onResume")
     }
 
     override fun onPause() {
         super.onPause()
-        L.d("onPause")
+//        L.d("onPause")
     }
 
     override fun onStop() {
         super.onStop()
-        L.d("onStop")
+//        L.d("onStop")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        L.d("")
+//        L.d("")
         dismissDialog()
         RxBus.get().unRegister(this)
         ActivityManager.instance.removeActivity(this)

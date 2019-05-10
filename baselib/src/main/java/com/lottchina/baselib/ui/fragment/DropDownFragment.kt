@@ -82,10 +82,12 @@ class DropDownFragment: BaseFragment(),View.OnClickListener {
         }
 
         dropdownPopupWindow1.setOnItemClickListener {
+//            rootView.tv_drop1.setText(list1.get(it))
             popPosition1 = it
             onItemClickListener?.onItemClick(0,popPosition1,popPosition2)
         }
         dropdownPopupWindow2.setOnItemClickListener {
+//            rootView.tv_drop2.setText(list2.get(it))
             popPosition2 = it
             onItemClickListener?.onItemClick(1,popPosition1,popPosition2)
         }
