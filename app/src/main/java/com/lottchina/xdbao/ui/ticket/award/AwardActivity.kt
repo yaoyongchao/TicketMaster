@@ -40,7 +40,10 @@ class AwardActivity : BaseActivity(), CpSocketUtil.MessageListener {
         setToolbarTitle(getString(com.lottchina.xdbao.R.string.award))
         var aa: RealWebSocket
 
-        CpSocketUtil.getInstance().startSocketComm(CommonUtil.getUserId(),CommonUtil.getToken(),this)
+        Thread(Runnable {
+            CpSocketUtil.getInstance().startSocketComm(CommonUtil.getUserId(),CommonUtil.getToken(),this)
+        }).start()
+
     }
 
     override fun initData() {

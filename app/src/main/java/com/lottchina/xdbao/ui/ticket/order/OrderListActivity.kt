@@ -6,6 +6,7 @@ import com.lottchina.baselib.base.BaseActivity
 import com.lottchina.baselib.ui.fragment.DropDownFragment
 import com.lottchina.baselib.utils.L
 import com.lottchina.xdbao.R
+import com.lottchina.xdbao.utils.CommonUtil
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener
 import com.vcaidian.customer.utils.RouteUrl
@@ -46,6 +47,13 @@ class OrderListActivity : BaseActivity() , OnRefreshLoadMoreListener {
         })
         addFragment(R.id.llyt_drop,dropDownFragment)
 
+
+        initrv()
+    }
+
+    fun initrv() {
+        CommonUtil.setRecyclerView(rv,mContext)
+        
     }
 
     override fun initData() {

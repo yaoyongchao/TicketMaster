@@ -1,5 +1,11 @@
 package com.lottchina.xdbao.utils;
 
+import android.content.Context;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+
+import com.lottchina.baselib.widget.MyDivider;
 import com.lottchina.cplib.data.bean.BindingStationBean;
 import com.lottchina.cplib.data.bean.Customer;
 import com.lottchina.cplib.data.bean.Terminal;
@@ -80,6 +86,21 @@ public class CommonUtil {
     public static Customer getCustomer(){
         return SPObjUtil.getObject(CpApplication.appContext,Customer.class);
     }
+
+    public static void setRecyclerView(RecyclerView rv, Context context,int h) {
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context );
+        if (0 == h) {
+            layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        } else {
+            layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        }
+        rv.setLayoutManager(layoutManager);
+        rv.addItemDecoration(new MyDivider(context, DividerItemDecoration.VERTICAL));
+    }
+    public static void setRecyclerView(RecyclerView rv,Context context){
+        setRecyclerView(rv,context,0);
+    }
+
 
 
 

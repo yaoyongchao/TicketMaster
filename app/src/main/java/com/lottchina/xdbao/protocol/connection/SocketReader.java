@@ -6,6 +6,7 @@ import com.lottchina.xdbao.protocol.Command;
 import com.lottchina.xdbao.protocol.comm.PMessage;
 import com.lottchina.xdbao.protocol.comm.PReader;
 import com.lottchina.xdbao.protocol.message.ActiveRepMessage;
+import com.lottchina.xdbao.protocol.message.BindTerminalRepMessage;
 import com.lottchina.xdbao.protocol.message.ConnectRepMessage;
 import com.lottchina.xdbao.protocol.message.MessageHead;
 import com.lottchina.xdbao.utils.log.Logger;
@@ -50,10 +51,10 @@ public class SocketReader extends PReader {
 		else if(Command.CMD_STATION_CONNECT_ACTIVE.equals(cmd)){
 			return new ActiveRepMessage(obj,bodyMsg);
 		}
-		/*else if(Command.CMD_STATION_BIND_TERMINAL.equals(cmd)){
+		else if(Command.CMD_STATION_BIND_TERMINAL.equals(cmd)){
 			return new BindTerminalRepMessage(obj,bodyMsg);
 		}
-		else if(Command.CMD_STATION_UNBIND_TERMINAL.equals(cmd)){
+		/*else if(Command.CMD_STATION_UNBIND_TERMINAL.equals(cmd)){
 			return new UnBindTerminalRepMessage(obj,bodyMsg);
 		}
 		else if(Command.CMD_STATION_TICKET_GET.equals(cmd)){

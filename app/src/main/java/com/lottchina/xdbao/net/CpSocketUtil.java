@@ -3,12 +3,19 @@ package com.lottchina.xdbao.net;
 import android.content.Context;
 import android.util.Log;
 
+import com.lottchina.baselib.utils.L;
+import com.lottchina.cplib.data.bean.StatusEvent;
 import com.lottchina.cplib.data.bean.Terminal;
 import com.lottchina.xdbao.protocol.PushMessageCmd;
+import com.lottchina.xdbao.protocol.SocketStatus;
+import com.lottchina.xdbao.protocol.message.BindTerminalMessage;
+import com.lottchina.xdbao.protocol.message.BindTerminalRepMessage;
 import com.lottchina.xdbao.protocol.message.PushMessage;
 import com.lottchina.xdbao.protocol.message.StationMessage;
 import com.lottchina.xdbao.protocol.smproxy.SMProxy;
 import com.lottchina.xdbao.protocol.util.Args;
+import com.lottchina.xdbao.ui.common.MyRxStatus;
+import com.lottchina.xdbao.utils.CommonUtil;
 import com.lottchina.xdbao.utils.ParseTimeUtil;
 import com.lottchina.xdbao.utils.log.Logger;
 import com.lottchina.xdbao.utils.log.LoggerFactory;
@@ -17,6 +24,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import gorden.rxbus2.RxBus;
 
 /**
  * Created by chao on 19-2-25.
@@ -193,6 +202,11 @@ public class CpSocketUtil {
 
 
 //                EventBus.getDefault().post(new StatusEvent(StatusEvent.SOCKET_STATUS,isConnected? SocketStatus.SOCKET_CONNECTED.getStatus() : SocketStatus.SOCKET_UNCONNECTED.getStatus()));
+                RxBus.get().send(MyRxStatus.SOCKET_LINK,new StatusEvent(StatusEvent.SOCKET_STATUS,isConnected? SocketStatus.SOCKET_CONNECTED.getStatus() : SocketStatus.SOCKET_UNCONNECTED.getStatus()));
+                if (socketConnected) {
+                    bindTerminal();
+                }
+
                 if (client!=null)
                     client.setTag(null);
 
@@ -231,4 +245,22 @@ public class CpSocketUtil {
         public void onMessage(List<StationMessage> msgList);
     }
 
+    private void bindTerminal() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                L.Companion.i("开始绑定终端");
+                Terminal terminal = CommonUtil.getTerminal();
+                BindTerminalMessage bindTerminalMessage = new BindTerminalMessage(terminal.getId());
+
+                try {
+                    BindTerminalRepMessage bindTerminalRepMessage = (BindTerminalRepMessage) CpSocketUtil.getInstance().getClient().send(bindTerminalMessage);
+                    L.Companion.i("绑定终端成功!"+bindTerminalRepMessage.getUuId());
+                } catch (Exception e) {
+                    L.Companion.e("绑定终端失败：" + e.toString());
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
 }

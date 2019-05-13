@@ -49,6 +49,14 @@ abstract class BaseActivity : AppCompatActivity() , CustomToolBar.OnClickLeftLis
         customToolBar.onClickLeftListener = this
         customToolBar.onClickRightListener = this
         baseView.addView(customToolBar)
+
+//        //添加网络链接状态
+//        var netView: LinearLayout = layoutInflater.inflate(R.layout.inclue_socket_status,null) as LinearLayout
+//        var paramsNet: LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+//                /*LinearLayout.LayoutParams.WRAP_CONTENT*/ScreenUtils.dip2px(this,40f))
+//        netView.layoutParams = paramsNet
+//        baseView.addView(netView)
+
         if (layoutId() != 0) {
             var subView: View = getLayoutInflater().inflate(layoutId(), null)
             var params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
@@ -56,6 +64,9 @@ abstract class BaseActivity : AppCompatActivity() , CustomToolBar.OnClickLeftLis
             subView.setLayoutParams(params)
             baseView.addView(subView)
         }
+
+
+
         return baseView
     }
 
@@ -188,6 +199,13 @@ abstract class BaseActivity : AppCompatActivity() , CustomToolBar.OnClickLeftLis
         ToastUtil.showLong(mContext,msg)
     }
 
+    /**
+     * 是否显示网络状态： true ，表示一直显示，不管是否链接都显示
+     */
+//    fun showNetStatus():Boolean {
+//        return false
+//    }
+
     open fun isFullScreen(): Boolean {
         return false
     }
@@ -198,6 +216,5 @@ abstract class BaseActivity : AppCompatActivity() , CustomToolBar.OnClickLeftLis
 //        fragmentTransaction.commit()
         fragmentTransaction.commitAllowingStateLoss()
     }
-
 
 }
